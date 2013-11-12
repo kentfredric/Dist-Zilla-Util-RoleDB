@@ -5,6 +5,17 @@ NAME
 VERSION
     version 0.001000
 
+METHODS
+  "roles"
+    Returns a list of all roles in the database, sorted by name.
+
+  "phases"
+    Returns a list of all roles that are also phases, sorted by name.
+
+ATTRIBUTES
+  "items"
+    Contains all items in this data set, as an array ref.
+
 AUTHOR
     Kent Fredric <kentfredric@gmail.com>
 

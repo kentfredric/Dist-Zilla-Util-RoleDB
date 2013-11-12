@@ -17,6 +17,7 @@ BEGIN {
 
 my @items;
 
+
 sub all {
   return @items if @items;
   _add_items();
@@ -74,6 +75,14 @@ Dist::Zilla::Util::RoleDB::Items::ThirdParty - An aggregate provisioned index of
 =head1 VERSION
 
 version 0.001000
+
+=head1 METHODS
+
+=head2 C<all>
+
+Returns all items in this item set, as a list
+
+    my @entries = $class->all();.
 
 =head1 AUTHOR
 

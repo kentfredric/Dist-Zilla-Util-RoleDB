@@ -14,6 +14,7 @@ BEGIN {
 my @items;
 
 
+
 sub all {
   return @items if @items;
   _add_items();
@@ -107,7 +108,9 @@ version 0.001000
 
 =head2 C<all>
 
-my @entries = class->all()
+Returns all items in this item set, as a list
+
+    my @entries = $class->all();.
 
 =head1 AUTHOR
 

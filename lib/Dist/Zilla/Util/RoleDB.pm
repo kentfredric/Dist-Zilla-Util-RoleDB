@@ -14,6 +14,7 @@ BEGIN {
 use Moose;
 use MooseX::AttributeShortcuts;
 
+
 has items => (
   isa     => 'ArrayRef[Dist::Zilla::Util::RoleDB::Entry]',
   is      => ro =>,
@@ -25,14 +26,16 @@ has items => (
   },
 );
 
+
 sub roles {
   my ($self) = @_;
-  return @{ $self->items };
+  return sort { $a->name cmp $b->name } @{ $self->items };
 }
+
 
 sub phases {
   my ($self) = @_;
-  return grep { $_->is_phase } @{ $self->items };
+  return sort { $a->name cmp $b->name } grep { $_->is_phase } @{ $self->items };
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -53,6 +56,22 @@ Dist::Zilla::Util::RoleDB - Shared code for things that communicate data about C
 =head1 VERSION
 
 version 0.001000
+
+=head1 METHODS
+
+=head2 C<roles>
+
+Returns a list of all roles in the database, sorted by name.
+
+=head2 C<phases>
+
+Returns a list of all roles that are also phases, sorted by name.
+
+=head1 ATTRIBUTES
+
+=head2 C<items>
+
+Contains all items in this data set, as an array ref.
 
 =head1 AUTHOR
 
