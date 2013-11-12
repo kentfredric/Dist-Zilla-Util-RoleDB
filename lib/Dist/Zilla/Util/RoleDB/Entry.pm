@@ -83,7 +83,7 @@ sub require_module {
   for my $module ( @{ $self->required_modules } ) {
     Module::Runtime::require_module($module);
   }
-  return 1;
+  return $self->full_name;
 }
 
 no Moose;
@@ -154,7 +154,7 @@ a roles existence in a file other than one matching its name.
 
 For example:
 
-    Foo.pm: 
+    Foo.pm:
 
         package Foo;
 
@@ -166,7 +166,7 @@ For example:
 
 In such a scenario, one cannot get Bar without C<require Foo>
 
-So here, 
+So here,
 
     ->new( name => 'Foo' ); # required_modules is automatically [Foo]
     ->new( name => 'Bar', required_modules => ['Foo'] );

@@ -13,7 +13,7 @@ BEGIN {
   $Dist::Zilla::Util::RoleDB::Items::ThirdParty::VERSION = '0.001000';
 }
 
-# ABSTRACT: An aggregate pre-provisioned index of third-party roles
+# ABSTRACT: An aggregate provisioned index of third-party roles
 
 my @items;
 
@@ -69,7 +69,7 @@ __END__
 
 =head1 NAME
 
-Dist::Zilla::Util::RoleDB::Items::ThirdParty - An aggregate pre-provisioned index of third-party roles
+Dist::Zilla::Util::RoleDB::Items::ThirdParty - An aggregate provisioned index of third-party roles
 
 =head1 VERSION
 

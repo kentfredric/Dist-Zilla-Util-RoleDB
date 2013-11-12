@@ -9,7 +9,7 @@ BEGIN {
   $Dist::Zilla::Util::RoleDB::Entry::Phase::VERSION = '0.001000';
 }
 
-# ABSTRACT: Extracted metadata about a role that represents a phase
+# ABSTRACT: Extracted meta-data about a role that represents a phase
 
 use Moose;
 use MooseX::AttributeShortcuts;
@@ -41,7 +41,7 @@ __END__
 
 =head1 NAME
 
-Dist::Zilla::Util::RoleDB::Entry::Phase - Extracted metadata about a role that represents a phase
+Dist::Zilla::Util::RoleDB::Entry::Phase - Extracted meta-data about a role that represents a phase
 
 =head1 VERSION
 
