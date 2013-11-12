@@ -1,0 +1,28 @@
+NAME
+    Dist::Zilla::Util::RoleDB - Shared code for things that communicate data
+    about "dzil" roles.
+
+VERSION
+    version 0.001000
+
+METHODS
+  "roles"
+    Returns a list of all roles in the database, sorted by name.
+
+  "phases"
+    Returns a list of all roles that are also phases, sorted by name.
+
+ATTRIBUTES
+  "items"
+    Contains all items in this data set, as an array ref.
+
+AUTHOR
+    Kent Fredric <kentfredric@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2013 by Kent Fredric
+    <kentfredric@gmail.com>.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
