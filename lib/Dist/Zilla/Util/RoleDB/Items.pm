@@ -40,24 +40,18 @@ sub _add_items {
 
 ## 3rd Party
 
-  _entry( name => q[-Bootstrap]       =>, description => q[Shared logic for bootstrap things.] );
-  _entry( name => q[-BundleDeps]      =>, description => q[Automatically add all plugins in a bundle as dependencies] );
-  _entry( name => q[-Git::DirtyFiles] =>, description => q[provide the allow_dirty & changelog attributes] );
-  _entry(
-    name        => q[-Git::LocalRepository] =>,
-    description => q[A plugin which works with a local git repository as its Dist::Zilla source.]
-  );
-  _entry( name => q[-Git::Remote::Branch] =>, description => q[Parts to enable aggregated specification of remote branches.] );
-  _entry( name => q[-Git::Remote::Check]  =>, description => q[Check a remote branch is not ahead of a local one] );
-  _entry( name => q[-Git::Remote::Update] =>, description => q[Update tracking data for a remote repository] );
-  _entry( name => q[-Git::Remote]         =>, description => q[Git Remote specification and validation for plugins.] );
-  _entry( name => q[-Git::Repo]           =>, description => q[Provide repository information for Git plugins] );
-  _entry(
-    name        => q[-MetaProvider::Provider] =>,
-    description => q[A Role for Metadata providers specific to the 'provider' key.]
-  );
-  _entry( name => q[-PluginBundle::Config::Slicer] =>, description => q[Pass Portions of Bundle Config to Plugins] );
-  _entry( name => q[-PluginBundle::PluginRemover]  =>, description => q[Add '-remove' functionality to a bundle] );
+  _add_entry( q[-Bootstrap]              => q[Shared logic for bootstrap things.] );
+  _add_entry( q[-BundleDeps]             => q[Automatically add all plugins in a bundle as dependencies] );
+  _add_entry( q[-Git::DirtyFiles]        => q[provide the allow_dirty & changelog attributes] );
+  _add_entry( q[-Git::LocalRepository]   => q[A plugin which works with a local git repository as its Dist::Zilla source.] );
+  _add_entry( q[-Git::Remote::Branch]    => q[Parts to enable aggregated specification of remote branches.] );
+  _add_entry( q[-Git::Remote::Check]     => q[Check a remote branch is not ahead of a local one] );
+  _add_entry( q[-Git::Remote::Update]    => q[Update tracking data for a remote repository] );
+  _add_entry( q[-Git::Remote]            => q[Git Remote specification and validation for plugins.] );
+  _add_entry( q[-Git::Repo]              => q[Provide repository information for Git plugins] );
+  _add_entry( q[-MetaProvider::Provider] => q[A Role for Metadata providers specific to the 'provider' key.] );
+  _add_entry( q[-PluginBundle::Config::Slicer] => q[Pass Portions of Bundle Config to Plugins] );
+  _add_entry( q[-PluginBundle::PluginRemover]  => q[Add '-remove' functionality to a bundle] );
 }
 1;
 
