@@ -29,7 +29,7 @@ has items => (
 
 sub roles {
   my ($self) = @_;
-  return ( my @list =  sort { $a->name cmp $b->name } @{ $self->items } );
+  return ( my @list = sort { $a->name cmp $b->name } @{ $self->items } );
 }
 
 
