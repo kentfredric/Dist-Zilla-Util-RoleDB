@@ -9,157 +9,75 @@ BEGIN {
   $Dist::Zilla::Util::RoleDB::Items::Core::VERSION = '0.001000';
 }
 
-require Dist::Zilla::Util::RoleDB::Entry;
-
 my @items;
 
 sub all {
+  return @items if @items;
+  _add_items();
   return @items;
 }
 
 sub _entry {
   my (@args) = @_;
+  require Dist::Zilla::Util::RoleDB::Entry;
   push @items, Dist::Zilla::Util::RoleDB::Entry->new(@args);
 }
 
-_entry(
-  name         => q[-AfterBuild] =>,
-  description  => q[something that runs after building is mostly complete],
-  phase_method => 'after_build'
-);
-_entry(
-  name         => q[-AfterMint] =>,
-  description  => q[something that runs after minting is mostly complete],
-  phase_method => 'after_mint'
-);
-_entry(
-  name         => q[-AfterRelease] =>,
-  description  => q[something that runs after release is mostly complete],
-  phase_method => 'after_release'
-);
-_entry(
-  name         => q[-BeforeArchive] =>,
-  description  => q[something that runs before the archive file is built],
-  phase_method => 'before_archive',
-);
-_entry(
-  name         => q[-BeforeBuild] =>,
-  description  => q[something that runs before building really begins],
-  phase_method => 'before_build',
-);
-_entry(
-  name         => q[-BeforeMint] =>,
-  description  => q[something that runs before minting really begins],
-  phase_method => 'before_mint'
-);
-_entry(
-  name         => q[-BeforeRelease] =>,
-  description  => q[something that runs before release really begins],
-  phase_method => 'before_release',
-);
-_entry( name => q[-BuildPL] =>, description => q[Common ground for Build.PL based builders] );
-_entry(
-  name         => q[-BuildRunner] =>,
-  description  => q[something used as a delegating agent during 'dzil run'],
-  phase_method => 'build'
-);
-_entry( name => q[-Chrome]       =>, description => q[something that provides a user interface for Dist::Zilla] );
-_entry( name => q[-ConfigDumper] =>, description => q[something that can dump its (public, simplified) configuration] );
-_entry(
-  name         => q[-EncodingProvider] =>,
-  description  => q[something that sets a files' encoding],
-  phase_method => 'set_file_encoding',
-);
-_entry( name => q[-ExecFiles]      =>, description => q[something that finds files to install as executables] );
-_entry( name => q[-FileFinderUser] =>, description => q[something that uses FileFinder plugins] );
-_entry( name => q[-FileFinder]     =>, description => q[something that finds files within the distribution] );
-_entry(
-  name         => q[-FileGatherer] =>,
-  description  => q[something that gathers files into the distribution],
-  phase_method => 'gather_files'
-);
-_entry( name => q[-FileInjector] =>, description => q[something that can add files to the distribution] );
-_entry(
-  name         => q[-FileMunger] =>,
-  description  => q[something that alters a file's destination or content],
-  phase_method => 'munge_files'
-);
-_entry(
-  name         => q[-FilePruner] =>,
-  description  => q[something that removes found files from the distribution],
-  phase_method => prune_files =>
-);
-_entry( name => q[-File] =>, description => q[something that can act like a file] );
-_entry(
-  name         => q[-InstallTool] =>,
-  description  => q[something that creates an install program for a dist],
-  phase_method => 'setup_installer',
-);
-_entry(
-  name         => q[-LicenseProvider] =>,
-  description  => q[something that provides a license for the dist],
-  phase_method => 'provide_license',
-);
-_entry(
-  name         => q[-MetaProvider] =>,
-  description  => q[something that provides metadata (for META.yml/json)],
-  phase_method => 'metadata',
-);
-_entry( name => q[-MintingProfile::ShareDir] =>, description => q[something that keeps its minting profile in a sharedir] );
-_entry(
-  name         => q[-MintingProfile] =>,
-  description  => q[something that can find a minting profile dir],
-  phase_method => 'profile_dir',
-);
-_entry(
-  name         => q[-ModuleMaker] =>,
-  description  => q[something that injects module files into the dist],
-  phase_method => 'make_module',
-);
-_entry( name => q[-MutableFile] =>, description => q[something that can act like a file with changeable contents] );
-_entry(
-  name         => q[-NameProvider] =>,
-  description  => q[something that provides a name for the dist],
-  phase_method => 'provide_name',
-);
-_entry( name => q[-PPI] =>, description => q[a role for plugins which use PPI] );
-_entry( name => q[-PluginBundle::Easy] =>, description => q[something that bundles a bunch of plugins easily] );
-_entry(
-  name         => q[-PluginBundle] =>,
-  description  => q[something that bundles a bunch of plugins],
-  phase_method => 'bundle_config',
-);
-_entry( name => q[-Plugin] =>, description => q[something that gets plugged in to Dist::Zilla] );
-_entry(
-  name         => q[-PrereqSource] =>,
-  description  => q[something that registers prerequisites],
-  phase_method => 'register_prereqs',
-);
-_entry(
-  name         => q[-Releaser] =>,
-  description  => q[something that makes a release of the dist],
-  phase_method => 'release',
-);
-_entry(
-  name         => q[-ShareDir] =>,
-  description  => q[something that picks a directory to install as shared files],
-  phase_method => 'share_dir_map',
-);
-_entry( name => q[-Stash::Authors] =>, description => q[a stash that provides a list of author strings] );
-_entry( name => q[-Stash::Login]   =>, description => q[a stash with username/password credentials] );
-_entry( name => q[-Stash]          =>, description => q[something that stores options or data for later reference] );
-_entry( name => q[-StubBuild]      =>, description => q[provides an empty BUILD methods] );
-_entry(
-  name         => q[-TestRunner] =>,
-  description  => q[something used as a delegating agent to 'dzil test'],
-  phase_method => 'test',
-);
-_entry( name => q[-TextTemplate] =>, description => q[something that renders a Text::Template template string] );
-_entry(
-  name         => q[-VersionProvider] =>,
-  description  => q[something that provides a version number for the dist],
-  phase_method => 'provide_version',
-);
+sub _add_entry {
+  my ( $name, $description, @extra ) = @_;
+  _entry( name => $name, description => $description, @extra );
+}
+
+sub _add_phase {
+  my ( $name, $description, $phase_method, @extra ) = @_;
+  _add_entry( $name, $description, phase_method => $phase_method );
+}
+
+sub _add_items {
+  _add_phase( q[-AfterBuild]       => q[something that runs after building is mostly complete],       'after_build' );
+  _add_phase( q[-AfterMint]        => q[something that runs after minting is mostly complete],        'after_mint' );
+  _add_phase( q[-AfterRelease]     => q[something that runs after release is mostly complete],        'after_release' );
+  _add_phase( q[-BeforeArchive]    => q[something that runs before the archive file is built],        'before_archive' );
+  _add_phase( q[-BeforeBuild]      => q[something that runs before building really begins],           'before_build' );
+  _add_phase( q[-BeforeMint]       => q[something that runs before minting really begins],            'before_mint' );
+  _add_phase( q[-BeforeRelease]    => q[something that runs before release really begins],            'before_release' );
+  _add_phase( q[-BuildRunner]      => q[something used as a delegating agent during 'dzil run'],      'build' );
+  _add_phase( q[-EncodingProvider] => q[something that sets a files' encoding],                       'set_file_encoding' );
+  _add_phase( q[-FileGatherer]     => q[something that gathers files into the distribution],          'gather_files' );
+  _add_phase( q[-FileMunger]       => q[something that alters a file's destination or content],       'munge_files' );
+  _add_phase( q[-FilePruner]       => q[something that removes found files from the distribution],    'prune_files' );
+  _add_phase( q[-InstallTool]      => q[something that creates an install program for a dist],        'setup_installer' );
+  _add_phase( q[-LicenseProvider]  => q[something that provides a license for the dist],              'provide_license' );
+  _add_phase( q[-MetaProvider]     => q[something that provides metadata (for META.yml/json)],        'metadata' );
+  _add_phase( q[-MintingProfile]   => q[something that can find a minting profile dir],               'profile_dir' );
+  _add_phase( q[-ModuleMaker]      => q[something that injects module files into the dist],           'make_module' );
+  _add_phase( q[-NameProvider]     => q[something that provides a name for the dist],                 'provide_name', );
+  _add_phase( q[-PluginBundle]     => q[something that bundles a bunch of plugins],                   'bundle_config' );
+  _add_phase( q[-PrereqSource]     => q[something that registers prerequisites],                      'register_prereqs' );
+  _add_phase( q[-Releaser]         => q[something that makes a release of the dist],                  'release' );
+  _add_phase( q[-ShareDir]         => q[something that picks a directory to install as shared files], 'share_dir_map' );
+  _add_phase( q[-TestRunner]       => q[something used as a delegating agent to 'dzil test'],         'test' );
+  _add_phase( q[-VersionProvider]  => q[something that provides a version number for the dist],       'provide_version' );
+
+  _add_entry( q[-BuildPL]                  => q[Common ground for Build.PL based builders] );
+  _add_entry( q[-Chrome]                   => q[something that provides a user interface for Dist::Zilla] );
+  _add_entry( q[-ConfigDumper]             => q[something that can dump its (public, simplified) configuration] );
+  _add_entry( q[-ExecFiles]                => q[something that finds files to install as executables] );
+  _add_entry( q[-FileFinderUser]           => q[something that uses FileFinder plugins] );
+  _add_entry( q[-FileFinder]               => q[something that finds files within the distribution] );
+  _add_entry( q[-FileInjector]             => q[something that can add files to the distribution] );
+  _add_entry( q[-File]                     => q[something that can act like a file] );
+  _add_entry( q[-MintingProfile::ShareDir] => q[something that keeps its minting profile in a sharedir] );
+  _add_entry( q[-MutableFile]              => q[something that can act like a file with changeable contents] );
+  _add_entry( q[-PPI]                      => q[a role for plugins which use PPI] );
+  _add_entry( q[-PluginBundle::Easy]       => q[something that bundles a bunch of plugins easily] );
+  _add_entry( q[-Plugin]                   => q[something that gets plugged in to Dist::Zilla] );
+  _add_entry( q[-Stash::Authors]           => q[a stash that provides a list of author strings] );
+  _add_entry( q[-Stash::Login]             => q[a stash with username/password credentials] );
+  _add_entry( q[-Stash]                    => q[something that stores options or data for later reference] );
+  _add_entry( q[-StubBuild]                => q[provides an empty BUILD methods] );
+  _add_entry( q[-TextTemplate]             => q[something that renders a Text::Template template string] );
+}
 
 __END__
 
