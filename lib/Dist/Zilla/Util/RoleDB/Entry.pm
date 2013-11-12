@@ -40,16 +40,16 @@ has full_name => (
 
 
 has required_modules => (
-  isa           => 'ArrayRef[Str]' =>,
-  is            => ro              =>,
-  lazy          => 1,
+  isa  => 'ArrayRef[Str]' =>,
+  is   => ro              =>,
+  lazy => 1,
   ## no critic (ProhibitImplicitNewlines)
   documentation => q[
         A list of things that must be manually require()d for the module to exist.
         Note: This should not be needed for anything, as its really only intended
         as a way to make hidden packages require()able.
         Usually, this will be exactly one item, and it will be the same as the modules name.
-    ],
+  ],
   builder => sub {
     my ($self) = @_;
     return [ $self->full_name ];
@@ -73,7 +73,7 @@ has deprecated => (
   is            => ro   =>,
   lazy          => 1,
   documentation => q[Set this to 1 if this role is deprecated],
-  builder       => sub  { return }
+  builder       => sub  { return },
 );
 
 
@@ -83,6 +83,7 @@ sub require_module {
   for my $module ( @{ $self->required_modules } ) {
     Module::Runtime::require_module($module);
   }
+  return 1;
 }
 
 no Moose;
