@@ -114,6 +114,10 @@
       "Dist::Zilla::Util::RoleDB::Items::Core" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Items/Core.pm",
          "version" : "0.001000"
+      },
+      "Dist::Zilla::Util::RoleDB::Items::ThirdParty" : {
+         "file" : "lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm",
+         "version" : "0.001000"
       }
    },
    "release_status" : "stable",
@@ -327,10 +331,11 @@
             "config" : {
                "Dist::Zilla::Plugin::Test::Compile::PerFile" : {
                   "file" : [
-                     "lib/Dist/Zilla/Util/RoleDB/Entry.pm",
-                     "lib/Dist/Zilla/Util/RoleDB/Items.pm",
+                     "lib/Dist/Zilla/Util/RoleDB/Items/Core.pm",
+                     "lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm",
                      "lib/Dist/Zilla/Util/RoleDB.pm",
-                     "lib/Dist/Zilla/Util/RoleDB/Items/Core.pm"
+                     "lib/Dist/Zilla/Util/RoleDB/Items.pm",
+                     "lib/Dist/Zilla/Util/RoleDB/Entry.pm"
                   ],
                   "path_translator" : "base64_filter",
                   "prefix" : "t/00-compile",

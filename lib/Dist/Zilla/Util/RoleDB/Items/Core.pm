@@ -13,6 +13,7 @@ BEGIN {
 
 my @items;
 
+
 sub all {
   return @items if @items;
   _add_items();
@@ -23,16 +24,17 @@ sub _entry {
   my (@args) = @_;
   require Dist::Zilla::Util::RoleDB::Entry;
   push @items, Dist::Zilla::Util::RoleDB::Entry->new(@args);
+  return;
 }
 
 sub _add_entry {
   my ( $name, $description, @extra ) = @_;
-  _entry( name => $name, description => $description, @extra );
+  return _entry( name => $name, description => $description, @extra );
 }
 
 sub _add_phase {
   my ( $name, $description, $phase_method, @extra ) = @_;
-  _add_entry( $name, $description, phase_method => $phase_method );
+  return _add_entry( $name, $description, phase_method => $phase_method );
 }
 
 sub _add_items {
@@ -79,6 +81,7 @@ sub _add_items {
   _add_entry( q[-Stash]                    => q[something that stores options or data for later reference] );
   _add_entry( q[-StubBuild]                => q[provides an empty BUILD methods] );
   _add_entry( q[-TextTemplate]             => q[something that renders a Text::Template template string] );
+  return;
 }
 
 1;
@@ -96,6 +99,12 @@ Dist::Zilla::Util::RoleDB::Items::Core - A collection of roles that are provided
 =head1 VERSION
 
 version 0.001000
+
+=head1 METHODS
+
+=head2 C<all>
+
+my @entries = class->all()
 
 =head1 AUTHOR
 

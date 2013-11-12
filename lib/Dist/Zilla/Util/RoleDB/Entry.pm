@@ -14,12 +14,14 @@ BEGIN {
 use Moose;
 use MooseX::AttributeShortcuts;
 
+
 has name => (
   isa           => Str =>,
   is            => ro  =>,
   required      => 1,
   documentation => q[The unprefixed version of the role name, ie: -Foo => DZR::Foo]
 );
+
 
 has full_name => (
   isa           => Str =>,
@@ -34,6 +36,8 @@ has full_name => (
     return $role_name;
   }
 );
+
+
 has required_modules => (
   isa           => 'ArrayRef[Str]' =>,
   is            => ro              =>,
@@ -49,6 +53,8 @@ has required_modules => (
     return [ $self->full_name ];
   },
 );
+
+
 has is_phase => (
   isa           => Bool =>,
   is            => ro   =>,
@@ -62,6 +68,8 @@ has is_phase => (
     return;
   }
 );
+
+
 has phase_method => (
   isa           => 'Maybe[Str]'       =>,
   is            => ro                 =>,
@@ -75,12 +83,15 @@ has phase_method => (
     Carp::croak('phase_method not defined, but is_phase is true');
   },
 );
+
+
 has description => (
   isa           => Str =>,
   is            => ro  =>,
   required      => 1,
   documentation => q[A text description of the role. A copy of ABSTRACT would be fine],
 );
+
 
 has deprecated => (
   isa           => Bool =>,
@@ -89,6 +100,7 @@ has deprecated => (
   documentation => q[Set this to 1 if this role is deprecated],
   builder       => sub  { return }
 );
+
 
 sub require_module {
   my ($self) = @_;
@@ -115,6 +127,26 @@ Dist::Zilla::Util::RoleDB::Entry - Extracted metadata about a role
 =head1 VERSION
 
 version 0.001000
+
+=head1 METHODS
+
+=head2 C<require_module>
+
+=head1 ATTRIBUTES
+
+=head2 C<name>
+
+=head2 C<full_name>
+
+=head2 C<required_modules>
+
+=head2 C<is_phase>
+
+=head2 C<phase_method>
+
+=head2 C<description>
+
+=head2 C<deprecated>
 
 =head1 AUTHOR
 

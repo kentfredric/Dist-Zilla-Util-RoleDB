@@ -11,9 +11,11 @@ lib/Dist/Zilla/Util/RoleDB.pm
 lib/Dist/Zilla/Util/RoleDB/Entry.pm
 lib/Dist/Zilla/Util/RoleDB/Items.pm
 lib/Dist/Zilla/Util/RoleDB/Items/Core.pm
+lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm
 perlcritic.rc
 t/00-compile/lib_Dist_Zilla_Util_RoleDB_Entry_pm.t
 t/00-compile/lib_Dist_Zilla_Util_RoleDB_Items_Core_pm.t
+t/00-compile/lib_Dist_Zilla_Util_RoleDB_Items_ThirdParty_pm.t
 t/00-compile/lib_Dist_Zilla_Util_RoleDB_Items_pm.t
 t/00-compile/lib_Dist_Zilla_Util_RoleDB_pm.t
 t/000-report-versions-tiny.t
