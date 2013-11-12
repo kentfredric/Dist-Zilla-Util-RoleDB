@@ -8,12 +8,20 @@ package Dist::Zilla::Util::RoleDB::Entry;
 use Moose;
 use MooseX::AttributeShortcuts;
 
+=attr C<name>
+
+=cut
+
 has name => (
   isa           => Str =>,
   is            => ro  =>,
   required      => 1,
   documentation => q[The unprefixed version of the role name, ie: -Foo => DZR::Foo]
 );
+
+=attr C<full_name>
+
+=cut
 
 has full_name => (
   isa           => Str =>,
@@ -28,6 +36,11 @@ has full_name => (
     return $role_name;
   }
 );
+
+=attr C<required_modules>
+
+=cut
+
 has required_modules => (
   isa           => 'ArrayRef[Str]' =>,
   is            => ro              =>,
@@ -43,38 +56,23 @@ has required_modules => (
     return [ $self->full_name ];
   },
 );
-has is_phase => (
-  isa           => Bool =>,
-  is            => ro   =>,
-  lazy          => 1,
-  documentation => q[This should be true if the role is a special role for dzil phase control],
-  builder       => sub {
-    my ($self) = @_;
-    if ( $self->has_phase_method ) {
-      return 1;
-    }
-    return;
-  }
-);
-has phase_method => (
-  isa           => 'Maybe[Str]'       =>,
-  is            => ro                 =>,
-  lazy          => 1,
-  predicate     => 'has_phase_method' =>,
-  documentation => q[If this entry is a phase role, this property should be specified],
-  builder       => sub {
-    my ($self) = @_;
-    return unless $self->is_phase;
-    require Carp;
-    Carp::croak('phase_method not defined, but is_phase is true');
-  },
-);
+
+sub is_phase { return }
+
+=attr C<description>
+
+=cut
+
 has description => (
   isa           => Str =>,
   is            => ro  =>,
   required      => 1,
   documentation => q[A text description of the role. A copy of ABSTRACT would be fine],
 );
+
+=attr C<deprecated>
+
+=cut
 
 has deprecated => (
   isa           => Bool =>,
@@ -83,6 +81,10 @@ has deprecated => (
   documentation => q[Set this to 1 if this role is deprecated],
   builder       => sub  { return }
 );
+
+=method C<require_module>
+
+=cut
 
 sub require_module {
   my ($self) = @_;

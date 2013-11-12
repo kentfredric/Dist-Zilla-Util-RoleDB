@@ -7,26 +7,36 @@ package Dist::Zilla::Util::RoleDB::Items::Core;
 
 my @items;
 
+=method C<all>
+
+my @entries = class->all()
+
+=cut
+
 sub all {
   return @items if @items;
   _add_items();
   return @items;
 }
 
-sub _entry {
-  my (@args) = @_;
-  require Dist::Zilla::Util::RoleDB::Entry;
-  push @items, Dist::Zilla::Util::RoleDB::Entry->new(@args);
-}
-
 sub _add_entry {
   my ( $name, $description, @extra ) = @_;
-  _entry( name => $name, description => $description, @extra );
+  require Dist::Zilla::Util::RoleDB::Entry;
+  push @items, Dist::Zilla::Util::RoleDB::Entry->new( name => $name, description => $description, @extra );
+  return;
 }
 
 sub _add_phase {
   my ( $name, $description, $phase_method, @extra ) = @_;
-  _add_entry( $name, $description, phase_method => $phase_method );
+  require Dist::Zilla::Util::RoleDB::Entry::Phase;
+  push @items,
+    Dist::Zilla::Util::RoleDB::Entry::Phase->new(
+    name         => $name,
+    description  => $description,
+    phase_method => $phase_method,
+    @extra
+    );
+  return;
 }
 
 sub _add_items {
@@ -73,6 +83,7 @@ sub _add_items {
   _add_entry( q[-Stash]                    => q[something that stores options or data for later reference] );
   _add_entry( q[-StubBuild]                => q[provides an empty BUILD methods] );
   _add_entry( q[-TextTemplate]             => q[something that renders a Text::Template template string] );
+  return;
 }
 
 1;
