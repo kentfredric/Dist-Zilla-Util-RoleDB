@@ -40,6 +40,10 @@ requires:
   perl: 5.006
   strict: 0
   warnings: 0
+resources:
+  bugtracker: https://github.com/kentfredric/Dist-Zilla-Util-RoleDB/issues
+  homepage: https://github.com/kentfredric/Dist-Zilla-Util-RoleDB
+  repository: https://github.com/kentfredric/Dist-Zilla-Util-RoleDB.git
 version: 0.001000
 x_BuiltWith:
   modules:
@@ -219,11 +223,11 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Test::Compile::PerFile:
           file:
             - lib/Dist/Zilla/Util/RoleDB.pm
-            - lib/Dist/Zilla/Util/RoleDB/Entry/Phase.pm
-            - lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm
             - lib/Dist/Zilla/Util/RoleDB/Items/Core.pm
-            - lib/Dist/Zilla/Util/RoleDB/Entry.pm
+            - lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm
+            - lib/Dist/Zilla/Util/RoleDB/Entry/Phase.pm
             - lib/Dist/Zilla/Util/RoleDB/Items.pm
+            - lib/Dist/Zilla/Util/RoleDB/Entry.pm
           path_translator: base64_filter
           prefix: t/00-compile
           skip: []

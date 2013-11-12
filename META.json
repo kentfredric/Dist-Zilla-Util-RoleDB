@@ -124,6 +124,17 @@
       }
    },
    "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/kentfredric/Dist-Zilla-Util-RoleDB/issues"
+      },
+      "homepage" : "https://github.com/kentfredric/Dist-Zilla-Util-RoleDB",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/kentfredric/Dist-Zilla-Util-RoleDB.git",
+         "web" : "https://github.com/kentfredric/Dist-Zilla-Util-RoleDB"
+      }
+   },
    "version" : "0.001000",
    "x_BuiltWith" : {
       "modules" : {
@@ -334,11 +345,11 @@
                "Dist::Zilla::Plugin::Test::Compile::PerFile" : {
                   "file" : [
                      "lib/Dist/Zilla/Util/RoleDB.pm",
-                     "lib/Dist/Zilla/Util/RoleDB/Entry/Phase.pm",
-                     "lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm",
                      "lib/Dist/Zilla/Util/RoleDB/Items/Core.pm",
-                     "lib/Dist/Zilla/Util/RoleDB/Entry.pm",
-                     "lib/Dist/Zilla/Util/RoleDB/Items.pm"
+                     "lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm",
+                     "lib/Dist/Zilla/Util/RoleDB/Entry/Phase.pm",
+                     "lib/Dist/Zilla/Util/RoleDB/Items.pm",
+                     "lib/Dist/Zilla/Util/RoleDB/Entry.pm"
                   ],
                   "path_translator" : "base64_filter",
                   "prefix" : "t/00-compile",

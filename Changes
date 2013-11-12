@@ -1,5 +1,5 @@
 Release history for Dist-Zilla-Util-RoleDB
 
-0.001000 2013-11-12T20:44:21Z
- - First version.
+0.001000 2013-11-12T21:30:01Z
+ - First version. TODO: Properly scan MetaCPAN for a more comprehensie role list.
 
