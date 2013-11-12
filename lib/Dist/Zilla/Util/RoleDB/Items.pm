@@ -10,6 +10,7 @@ BEGIN {
 }
 
 # ABSTRACT: An aggregate pre-provisioned index of roles
+
 my @items;
 
 sub all {

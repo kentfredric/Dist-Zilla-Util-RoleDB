@@ -9,22 +9,24 @@ BEGIN {
   $Dist::Zilla::Util::RoleDB::Entry::VERSION = '0.001000';
 }
 
+# ABSTRACT: Extracted metadata about a role
+
 use Moose;
 use MooseX::AttributeShortcuts;
 
 has name => (
-  isa         => Str =>,
-  is          => ro  =>,
-  required    => 1,
+  isa           => Str =>,
+  is            => ro  =>,
+  required      => 1,
   documentation => q[The unprefixed version of the role name, ie: -Foo => DZR::Foo]
 );
 
 has full_name => (
-  isa         => Str =>,
-  is          => ro  =>,
-  lazy        => 1,
+  isa           => Str =>,
+  is            => ro  =>,
+  lazy          => 1,
   documentation => q[The fully qualified version of the role name],
-  builder     => sub {
+  builder       => sub {
     my ($self) = @_;
     my $role_name = $self->name;
     return $role_name unless $role_name =~ /\A-/msx;
@@ -33,9 +35,9 @@ has full_name => (
   }
 );
 has required_modules => (
-  isa         => 'ArrayRef[Str]' =>,
-  is          => ro              =>,
-  lazy        => 1,
+  isa           => 'ArrayRef[Str]' =>,
+  is            => ro              =>,
+  lazy          => 1,
   documentation => q[
         A list of things that must be manually require()d for the module to exist.
         Note: This should not be needed for anything, as its really only intended
@@ -48,11 +50,11 @@ has required_modules => (
   },
 );
 has is_phase => (
-  isa         => Bool =>,
-  is          => ro   =>,
-  lazy        => 1,
+  isa           => Bool =>,
+  is            => ro   =>,
+  lazy          => 1,
   documentation => q[This should be true if the role is a special role for dzil phase control],
-  builder     => sub {
+  builder       => sub {
     my ($self) = @_;
     if ( $self->has_phase_method ) {
       return 1;
@@ -61,12 +63,12 @@ has is_phase => (
   }
 );
 has phase_method => (
-  isa         => 'Maybe[Str]' =>,
-  is          => ro           =>,
-  lazy        => 1,
-  predicate => 'has_phase_method' =>,
+  isa           => 'Maybe[Str]'       =>,
+  is            => ro                 =>,
+  lazy          => 1,
+  predicate     => 'has_phase_method' =>,
   documentation => q[If this entry is a phase role, this property should be specified],
-  builder     => sub {
+  builder       => sub {
     my ($self) = @_;
     return unless $self->is_phase;
     require Carp;
@@ -74,18 +76,18 @@ has phase_method => (
   },
 );
 has description => (
-  isa         => Str =>,
-  is          => ro  =>,
-  required    => 1,
+  isa           => Str =>,
+  is            => ro  =>,
+  required      => 1,
   documentation => q[A text description of the role. A copy of ABSTRACT would be fine],
 );
 
 has deprecated => (
-  isa         => Bool =>,
-  is          => ro   =>,
-  lazy        => 1,
+  isa           => Bool =>,
+  is            => ro   =>,
+  lazy          => 1,
   documentation => q[Set this to 1 if this role is deprecated],
-  builder     => sub  { return }
+  builder       => sub  { return }
 );
 
 sub require_module {
@@ -108,7 +110,7 @@ __END__
 
 =head1 NAME
 
-Dist::Zilla::Util::RoleDB::Entry
+Dist::Zilla::Util::RoleDB::Entry - Extracted metadata about a role
 
 =head1 VERSION
 
