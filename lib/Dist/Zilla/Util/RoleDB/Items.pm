@@ -9,41 +9,56 @@ BEGIN {
   $Dist::Zilla::Util::RoleDB::Items::VERSION = '0.001000';
 }
 
-require Dist::Zilla::Util::RoleDB::Entry;
-require Dist::Zilla::Util::RoleDB::Items::Core;
-
+# ABSTRACT: An aggregate pre-provisioned index of roles
 my @items;
 
 sub all {
+  return @items if @items;
+  _add_items();
   return @items;
 }
 
 sub _entry {
   my (@args) = @_;
+  require Dist::Zilla::Util::RoleDB::Entry;
   push @items, Dist::Zilla::Util::RoleDB::Entry->new(@args);
 }
 
+sub _add_entry {
+  my ( $name, $description, @extra ) = @_;
+  _entry( name => $name, description => $description, @extra );
+}
 
-push @items, Dist::Zilla::Util::RoleDB::Items::Core->all;
+sub _add_phase {
+  my ( $name, $description, $phase_method, @extra ) = @_;
+  _add_entry( $name, $description, phase_method => $phase_method );
+}
+
+sub _add_items {
+  require Dist::Zilla::Util::RoleDB::Items::Core;
+  push @items, Dist::Zilla::Util::RoleDB::Items::Core->all;
 
 ## 3rd Party
 
-_entry( name => q[-Bootstrap]       =>, description => q[Shared logic for bootstrap things.] );
-_entry( name => q[-BundleDeps]      =>, description => q[Automatically add all plugins in a bundle as dependencies] );
-_entry( name => q[-Git::DirtyFiles] =>, description => q[provide the allow_dirty & changelog attributes] );
-_entry(
-  name        => q[-Git::LocalRepository] =>,
-  description => q[A plugin which works with a local git repository as its Dist::Zilla source.]
-);
-_entry( name => q[-Git::Remote::Branch]    =>, description => q[Parts to enable aggregated specification of remote branches.] );
-_entry( name => q[-Git::Remote::Check]     =>, description => q[Check a remote branch is not ahead of a local one] );
-_entry( name => q[-Git::Remote::Update]    =>, description => q[Update tracking data for a remote repository] );
-_entry( name => q[-Git::Remote]            =>, description => q[Git Remote specification and validation for plugins.] );
-_entry( name => q[-Git::Repo]              =>, description => q[Provide repository information for Git plugins] );
-_entry( name => q[-MetaProvider::Provider] =>, description => q[A Role for Metadata providers specific to the 'provider' key.] );
-_entry( name => q[-PluginBundle::Config::Slicer] =>, description => q[Pass Portions of Bundle Config to Plugins] );
-_entry( name => q[-PluginBundle::PluginRemover]  =>, description => q[Add '-remove' functionality to a bundle] );
-
+  _entry( name => q[-Bootstrap]       =>, description => q[Shared logic for bootstrap things.] );
+  _entry( name => q[-BundleDeps]      =>, description => q[Automatically add all plugins in a bundle as dependencies] );
+  _entry( name => q[-Git::DirtyFiles] =>, description => q[provide the allow_dirty & changelog attributes] );
+  _entry(
+    name        => q[-Git::LocalRepository] =>,
+    description => q[A plugin which works with a local git repository as its Dist::Zilla source.]
+  );
+  _entry( name => q[-Git::Remote::Branch] =>, description => q[Parts to enable aggregated specification of remote branches.] );
+  _entry( name => q[-Git::Remote::Check]  =>, description => q[Check a remote branch is not ahead of a local one] );
+  _entry( name => q[-Git::Remote::Update] =>, description => q[Update tracking data for a remote repository] );
+  _entry( name => q[-Git::Remote]         =>, description => q[Git Remote specification and validation for plugins.] );
+  _entry( name => q[-Git::Repo]           =>, description => q[Provide repository information for Git plugins] );
+  _entry(
+    name        => q[-MetaProvider::Provider] =>,
+    description => q[A Role for Metadata providers specific to the 'provider' key.]
+  );
+  _entry( name => q[-PluginBundle::Config::Slicer] =>, description => q[Pass Portions of Bundle Config to Plugins] );
+  _entry( name => q[-PluginBundle::PluginRemover]  =>, description => q[Add '-remove' functionality to a bundle] );
+}
 1;
 
 __END__
@@ -54,7 +69,7 @@ __END__
 
 =head1 NAME
 
-Dist::Zilla::Util::RoleDB::Items
+Dist::Zilla::Util::RoleDB::Items - An aggregate pre-provisioned index of roles
 
 =head1 VERSION
 
