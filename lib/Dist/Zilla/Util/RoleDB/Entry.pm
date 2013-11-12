@@ -9,7 +9,7 @@ BEGIN {
   $Dist::Zilla::Util::RoleDB::Entry::VERSION = '0.001000';
 }
 
-# ABSTRACT: Extracted metadata about a role
+# ABSTRACT: Extracted meta-data about a role
 
 use Moose;
 use MooseX::AttributeShortcuts;
@@ -20,7 +20,7 @@ has name => (
   isa           => Str =>,
   is            => ro  =>,
   required      => 1,
-  documentation => q[The unprefixed version of the role name, ie: -Foo => DZR::Foo]
+  documentation => q[The unprefixed version of the role name, ie: -Foo => DZR::Foo],
 );
 
 
@@ -35,7 +35,7 @@ has full_name => (
     return $role_name unless $role_name =~ /\A-/msx;
     $role_name =~ s{\A-}{Dist::Zilla::Role::}msx;
     return $role_name;
-  }
+  },
 );
 
 
@@ -43,6 +43,7 @@ has required_modules => (
   isa           => 'ArrayRef[Str]' =>,
   is            => ro              =>,
   lazy          => 1,
+  ## no critic (ProhibitImplicitNewlines)
   documentation => q[
         A list of things that must be manually require()d for the module to exist.
         Note: This should not be needed for anything, as its really only intended
@@ -96,7 +97,7 @@ __END__
 
 =head1 NAME
 
-Dist::Zilla::Util::RoleDB::Entry - Extracted metadata about a role
+Dist::Zilla::Util::RoleDB::Entry - Extracted meta-data about a role
 
 =head1 VERSION
 
@@ -176,7 +177,7 @@ This mechanism is mostly to support C<< $entry->require_module >>
 
 =head2 C<description>
 
-Contains a textual descripton of the Role.
+Contains a textual description of the Role.
 
 Usually, a copy of the Roles "ABSTRACT" will do the trick.
 
