@@ -3,9 +3,17 @@ use warnings;
 
 package Dist::Zilla::Util::RoleDB::Items;
 
-# ABSTRACT: An aggregate pre-provisioned index of roles
+# ABSTRACT: An aggregate provisioned index of roles
 
 my @items;
+
+=method C<all>
+
+Returns all items in this item set, as a list
+
+    my @entries = $class->all();.
+
+=cut
 
 sub all {
   return @items if @items;

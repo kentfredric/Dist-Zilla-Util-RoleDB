@@ -3,14 +3,16 @@ use warnings;
 
 package Dist::Zilla::Util::RoleDB::Entry::Phase;
 
-# ABSTRACT: Extracted metadata about a role that represents a phase
+# ABSTRACT: Extracted meta-data about a role that represents a phase
 
 use Moose;
 use MooseX::AttributeShortcuts;
 
 extends 'Dist::Zilla::Util::RoleDB::Entry';
 
-=attr C<is_phase>
+=method C<is_phase>
+
+Returns true.
 
 =cut
 
@@ -19,6 +21,8 @@ sub is_phase {
 }
 
 =attr C<phase_method>
+
+Returns the method C<Dist::Zilla> calls to implement this phase
 
 =cut
 

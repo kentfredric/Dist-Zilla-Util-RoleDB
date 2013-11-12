@@ -7,9 +7,17 @@ use warnings;
 
 package Dist::Zilla::Util::RoleDB::Items::ThirdParty;
 
-# ABSTRACT: An aggregate pre-provisioned index of third-party roles
+# ABSTRACT: An aggregate provisioned index of third-party roles
 
 my @items;
+
+=method C<all>
+
+Returns all items in this item set, as a list
+
+    my @entries = $class->all();.
+
+=cut
 
 sub all {
   return @items if @items;

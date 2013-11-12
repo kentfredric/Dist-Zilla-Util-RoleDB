@@ -9,7 +9,9 @@ my @items;
 
 =method C<all>
 
-my @entries = class->all()
+Returns all items in this item set, as a list
+
+    my @entries = $class->all();.
 
 =cut
 
