@@ -29,13 +29,13 @@ has items => (
 
 sub roles {
   my ($self) = @_;
-  return sort { $a->name cmp $b->name } @{ $self->items };
+  return ( my @list =  sort { $a->name cmp $b->name } @{ $self->items } );
 }
 
 
 sub phases {
   my ($self) = @_;
-  return sort { $a->name cmp $b->name } grep { $_->is_phase } @{ $self->items };
+  return ( my @list = sort { $a->name cmp $b->name } grep { $_->is_phase } @{ $self->items } );
 }
 
 __PACKAGE__->meta->make_immutable;
