@@ -224,10 +224,10 @@ x_Dist_Zilla:
           file:
             - lib/Dist/Zilla/Util/RoleDB.pm
             - lib/Dist/Zilla/Util/RoleDB/Items/Core.pm
+            - lib/Dist/Zilla/Util/RoleDB/Entry.pm
             - lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm
             - lib/Dist/Zilla/Util/RoleDB/Entry/Phase.pm
             - lib/Dist/Zilla/Util/RoleDB/Items.pm
-            - lib/Dist/Zilla/Util/RoleDB/Entry.pm
           path_translator: base64_filter
           prefix: t/00-compile
           skip: []
