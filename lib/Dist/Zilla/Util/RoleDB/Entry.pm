@@ -54,35 +54,7 @@ has required_modules => (
   },
 );
 
-
-has is_phase => (
-  isa           => Bool =>,
-  is            => ro   =>,
-  lazy          => 1,
-  documentation => q[This should be true if the role is a special role for dzil phase control],
-  builder       => sub {
-    my ($self) = @_;
-    if ( $self->has_phase_method ) {
-      return 1;
-    }
-    return;
-  }
-);
-
-
-has phase_method => (
-  isa           => 'Maybe[Str]'       =>,
-  is            => ro                 =>,
-  lazy          => 1,
-  predicate     => 'has_phase_method' =>,
-  documentation => q[If this entry is a phase role, this property should be specified],
-  builder       => sub {
-    my ($self) = @_;
-    return unless $self->is_phase;
-    require Carp;
-    Carp::croak('phase_method not defined, but is_phase is true');
-  },
-);
+sub is_phase { return }
 
 
 has description => (
@@ -139,10 +111,6 @@ version 0.001000
 =head2 C<full_name>
 
 =head2 C<required_modules>
-
-=head2 C<is_phase>
-
-=head2 C<phase_method>
 
 =head2 C<description>
 

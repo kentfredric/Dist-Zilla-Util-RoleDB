@@ -20,21 +20,19 @@ sub all {
   return @items;
 }
 
-sub _entry {
-  my (@args) = @_;
-  require Dist::Zilla::Util::RoleDB::Entry;
-  push @items, Dist::Zilla::Util::RoleDB::Entry->new(@args);
-  return;
-}
-
 sub _add_entry {
   my ( $name, $description, @extra ) = @_;
-  return _entry( name => $name, description => $description, @extra );
+  require Dist::Zilla::Util::RoleDB::Entry;
+  push @items, Dist::Zilla::Util::RoleDB::Entry->new( name => $name, description => $description, @extra );
+  return;
 }
 
 sub _add_phase {
   my ( $name, $description, $phase_method, @extra ) = @_;
-  return _add_entry( $name, $description, phase_method => $phase_method );
+  require Dist::Zilla::Util::RoleDB::Entry::Phase;
+  push @items,
+    Dist::Zilla::Util::RoleDB::Entry->new( name => $name, description => $description, phase_method => $phase_method, @extra );
+  return;
 }
 
 sub _add_items {

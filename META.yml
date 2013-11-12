@@ -21,6 +21,9 @@ provides:
   Dist::Zilla::Util::RoleDB::Entry:
     file: lib/Dist/Zilla/Util/RoleDB/Entry.pm
     version: 0.001000
+  Dist::Zilla::Util::RoleDB::Entry::Phase:
+    file: lib/Dist/Zilla/Util/RoleDB/Entry/Phase.pm
+    version: 0.001000
   Dist::Zilla::Util::RoleDB::Items:
     file: lib/Dist/Zilla/Util/RoleDB/Items.pm
     version: 0.001000
@@ -31,7 +34,6 @@ provides:
     file: lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm
     version: 0.001000
 requires:
-  Carp: 0
   Module::Runtime: 0
   Moose: 0
   MooseX::AttributeShortcuts: 0
@@ -41,7 +43,6 @@ requires:
 version: 0.001000
 x_BuiltWith:
   modules:
-    Carp: 1.32
     Dist::Zilla::Plugin::Author::KENTNL::MinimumPerl: 2.002000
     Dist::Zilla::Plugin::Authority: 1.006
     Dist::Zilla::Plugin::AutoPrereqs: 5.006
@@ -218,10 +219,11 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Test::Compile::PerFile:
           file:
             - lib/Dist/Zilla/Util/RoleDB/Items/Core.pm
-            - lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm
-            - lib/Dist/Zilla/Util/RoleDB.pm
-            - lib/Dist/Zilla/Util/RoleDB/Items.pm
+            - lib/Dist/Zilla/Util/RoleDB/Entry/Phase.pm
             - lib/Dist/Zilla/Util/RoleDB/Entry.pm
+            - lib/Dist/Zilla/Util/RoleDB.pm
+            - lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm
+            - lib/Dist/Zilla/Util/RoleDB/Items.pm
           path_translator: base64_filter
           prefix: t/00-compile
           skip: []
