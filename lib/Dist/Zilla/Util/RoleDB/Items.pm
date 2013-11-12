@@ -4,6 +4,7 @@ use warnings;
 package Dist::Zilla::Util::RoleDB::Items;
 
 # ABSTRACT: An aggregate pre-provisioned index of roles
+
 my @items;
 
 sub all {
