@@ -79,6 +79,8 @@ sub _add_items {
   _add_entry( q[-TextTemplate]             => q[something that renders a Text::Template template string] );
 }
 
+1;
+
 __END__
 
 =pod
