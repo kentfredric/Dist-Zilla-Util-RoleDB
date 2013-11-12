@@ -47,11 +47,17 @@ Dist::Zilla::Util::RoleDB::Entry::Phase - Extracted metadata about a role that r
 
 version 0.001000
 
-=head1 ATTRIBUTES
+=head1 METHODS
 
 =head2 C<is_phase>
 
+Returns true.
+
+=head1 ATTRIBUTES
+
 =head2 C<phase_method>
+
+Returns the method C<Dist::Zilla> calls to implement this phase
 
 =head1 AUTHOR
 
