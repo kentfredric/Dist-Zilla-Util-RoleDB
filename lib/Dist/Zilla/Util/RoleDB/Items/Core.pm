@@ -31,7 +31,12 @@ sub _add_phase {
   my ( $name, $description, $phase_method, @extra ) = @_;
   require Dist::Zilla::Util::RoleDB::Entry::Phase;
   push @items,
-    Dist::Zilla::Util::RoleDB::Entry->new( name => $name, description => $description, phase_method => $phase_method, @extra );
+    Dist::Zilla::Util::RoleDB::Entry::Phase->new(
+    name         => $name,
+    description  => $description,
+    phase_method => $phase_method,
+    @extra
+    );
   return;
 }
 
