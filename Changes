@@ -1,5 +1,5 @@
 Release history for Dist-Zilla-Util-RoleDB
 
 {{$NEXT}}
- - First version.
+ - First version. TODO: Properly scan MetaCPAN for a more comprehensie role list.
 
