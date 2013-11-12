@@ -9,6 +9,8 @@ BEGIN {
   $Dist::Zilla::Util::RoleDB::Items::Core::VERSION = '0.001000';
 }
 
+# ABSTRACT: A collection of roles that are provided by Dist::Zilla itself.
+
 my @items;
 
 sub all {
@@ -89,7 +91,7 @@ __END__
 
 =head1 NAME
 
-Dist::Zilla::Util::RoleDB::Items::Core
+Dist::Zilla::Util::RoleDB::Items::Core - A collection of roles that are provided by Dist::Zilla itself.
 
 =head1 VERSION
 
