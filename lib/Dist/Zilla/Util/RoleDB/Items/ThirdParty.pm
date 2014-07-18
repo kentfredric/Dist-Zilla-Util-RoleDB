@@ -2,10 +2,9 @@
 use strict;
 use warnings;
 
-use strict;
-use warnings;
-
 package Dist::Zilla::Util::RoleDB::Items::ThirdParty;
+
+our $VERSION = '0.002000';
 
 # ABSTRACT: An aggregate provisioned index of third-party roles
 

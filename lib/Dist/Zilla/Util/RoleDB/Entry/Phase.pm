@@ -3,6 +3,8 @@ use warnings;
 
 package Dist::Zilla::Util::RoleDB::Entry::Phase;
 
+our $VERSION = '0.002000';
+
 # ABSTRACT: Extracted meta-data about a role that represents a phase
 
 use Moose;

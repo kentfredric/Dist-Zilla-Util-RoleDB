@@ -3,6 +3,8 @@ use warnings;
 
 package Dist::Zilla::Util::RoleDB::Items::Core;
 
+our $VERSION = '0.002000';
+
 # ABSTRACT: A collection of roles that are provided by Dist::Zilla itself.
 
 my @items;

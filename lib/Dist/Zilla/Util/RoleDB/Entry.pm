@@ -3,6 +3,8 @@ use warnings;
 
 package Dist::Zilla::Util::RoleDB::Entry;
 
+our $VERSION = '0.002000';
+
 # ABSTRACT: Extracted meta-data about a role
 
 use Moose;
