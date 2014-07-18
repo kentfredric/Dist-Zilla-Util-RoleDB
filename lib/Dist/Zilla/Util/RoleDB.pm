@@ -38,7 +38,7 @@ has items => (
 
 sub roles {
   my ($self) = @_;
-  return @{[ sort { $a->name cmp $b->name } @{ $self->items } ]};
+  return @{ [ sort { $a->name cmp $b->name } @{ $self->items } ] };
 }
 
 
@@ -49,7 +49,7 @@ sub roles {
 
 sub phases {
   my ($self) = @_;
-  return @{[ sort { $a->name cmp $b->name } grep { $_->is_phase } @{ $self->items } ]};
+  return @{ [ sort { $a->name cmp $b->name } grep { $_->is_phase } @{ $self->items } ] };
 }
 
 __PACKAGE__->meta->make_immutable;

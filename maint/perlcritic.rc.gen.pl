@@ -20,6 +20,7 @@ $bundle->configure;
 
 my @stopwords = (
   qw(
+    dzil
     )
 );
 for my $wordlist (@stopwords) {
