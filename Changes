@@ -3,9 +3,10 @@ Release history for Dist-Zilla-Util-RoleDB
 {{$NEXT}}
  [00 Major]
  - Changes that may affect downstreams that work by hand
+ - Other misc package cleanups
 
  [01 Tooling]
- - Switched to EUMM ( https://questhub.io/realm/perl/quest/5388cc12bbd0be5b2500011f/comment/53c5505ab587a4c82c0000b2 )
+ - Switched to EUMM ( https://questhub.io/realm/perl/quest/5388cc12bbd0be5b2500011f )
  - "latest" toolkit versions now only recommended instead of required
 
  [Dependencies::Stats]
