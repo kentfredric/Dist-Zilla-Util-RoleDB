@@ -2,16 +2,17 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Util::RoleDB::Items::Core;
-BEGIN {
-  $Dist::Zilla::Util::RoleDB::Items::Core::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::Util::RoleDB::Items::Core::VERSION = '0.001000';
-}
-
+$Dist::Zilla::Util::RoleDB::Items::Core::VERSION = '0.001001';
 # ABSTRACT: A collection of roles that are provided by Dist::Zilla itself.
 
 my @items;
+
+
+
+
+
+
+
 
 
 sub all {
@@ -101,7 +102,7 @@ Dist::Zilla::Util::RoleDB::Items::Core - A collection of roles that are provided
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 METHODS
 
@@ -117,7 +118,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

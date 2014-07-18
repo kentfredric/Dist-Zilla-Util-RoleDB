@@ -2,17 +2,33 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Util::RoleDB::Entry;
-BEGIN {
-  $Dist::Zilla::Util::RoleDB::Entry::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::Util::RoleDB::Entry::VERSION = '0.001000';
-}
-
+$Dist::Zilla::Util::RoleDB::Entry::VERSION = '0.001001';
 # ABSTRACT: Extracted meta-data about a role
 
 use Moose;
 use MooseX::AttributeShortcuts;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -22,6 +38,13 @@ has name => (
   required      => 1,
   documentation => q[The unprefixed version of the role name, ie: -Foo => DZR::Foo],
 );
+
+
+
+
+
+
+
 
 
 has full_name => (
@@ -37,6 +60,39 @@ has full_name => (
     return $role_name;
   },
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 has required_modules => (
@@ -57,7 +113,19 @@ has required_modules => (
 );
 
 
+
+
+
+
+
 sub is_phase { return }
+
+
+
+
+
+
+
 
 
 has description => (
@@ -68,6 +136,11 @@ has description => (
 );
 
 
+
+
+
+
+
 has deprecated => (
   isa           => Bool =>,
   is            => ro   =>,
@@ -75,6 +148,14 @@ has deprecated => (
   documentation => q[Set this to 1 if this role is deprecated],
   builder       => sub  { return },
 );
+
+
+
+
+
+
+
+
 
 
 sub require_module {
@@ -102,7 +183,7 @@ Dist::Zilla::Util::RoleDB::Entry - Extracted meta-data about a role
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 SYNOPSIS
 
@@ -192,7 +273,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

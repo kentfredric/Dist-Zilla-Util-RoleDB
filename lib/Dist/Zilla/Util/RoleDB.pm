@@ -2,17 +2,16 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Util::RoleDB;
-BEGIN {
-  $Dist::Zilla::Util::RoleDB::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::Util::RoleDB::VERSION = '0.001000';
-}
-
+$Dist::Zilla::Util::RoleDB::VERSION = '0.001001';
 # ABSTRACT: Shared code for things that communicate data about C<dzil> roles.
 
 use Moose;
 use MooseX::AttributeShortcuts;
+
+
+
+
+
 
 
 has items => (
@@ -27,10 +26,20 @@ has items => (
 );
 
 
+
+
+
+
+
 sub roles {
   my ($self) = @_;
   return ( my @list = sort { $a->name cmp $b->name } @{ $self->items } );
 }
+
+
+
+
+
 
 
 sub phases {
@@ -55,7 +64,7 @@ Dist::Zilla::Util::RoleDB - Shared code for things that communicate data about C
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 METHODS
 
@@ -79,7 +88,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

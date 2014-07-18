@@ -2,13 +2,7 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Util::RoleDB::Entry::Phase;
-BEGIN {
-  $Dist::Zilla::Util::RoleDB::Entry::Phase::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::Util::RoleDB::Entry::Phase::VERSION = '0.001000';
-}
-
+$Dist::Zilla::Util::RoleDB::Entry::Phase::VERSION = '0.001001';
 # ABSTRACT: Extracted meta-data about a role that represents a phase
 
 use Moose;
@@ -17,9 +11,19 @@ use MooseX::AttributeShortcuts;
 extends 'Dist::Zilla::Util::RoleDB::Entry';
 
 
+
+
+
+
+
 sub is_phase {
   return 1;
 }
+
+
+
+
+
 
 
 has phase_method => (
@@ -45,7 +49,7 @@ Dist::Zilla::Util::RoleDB::Entry::Phase - Extracted meta-data about a role that 
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 METHODS
 
@@ -65,7 +69,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
