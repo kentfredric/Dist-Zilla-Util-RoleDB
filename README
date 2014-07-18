@@ -3,7 +3,7 @@ NAME
     about "dzil" roles.
 
 VERSION
-    version 0.001001
+    version 0.002000
 
 METHODS
   "roles"

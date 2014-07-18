@@ -2,11 +2,10 @@
 use strict;
 use warnings;
 
-use strict;
-use warnings;
-
 package Dist::Zilla::Util::RoleDB::Items::ThirdParty;
-$Dist::Zilla::Util::RoleDB::Items::ThirdParty::VERSION = '0.001001';
+
+our $VERSION = '0.002000';
+
 # ABSTRACT: An aggregate provisioned index of third-party roles
 
 my @items;
@@ -75,7 +74,7 @@ Dist::Zilla::Util::RoleDB::Items::ThirdParty - An aggregate provisioned index of
 
 =head1 VERSION
 
-version 0.001001
+version 0.002000
 
 =head1 METHODS
 

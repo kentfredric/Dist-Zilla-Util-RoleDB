@@ -2,7 +2,9 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Util::RoleDB::Entry::Phase;
-$Dist::Zilla::Util::RoleDB::Entry::Phase::VERSION = '0.001001';
+
+our $VERSION = '0.002000';
+
 # ABSTRACT: Extracted meta-data about a role that represents a phase
 
 use Moose;
@@ -49,7 +51,7 @@ Dist::Zilla::Util::RoleDB::Entry::Phase - Extracted meta-data about a role that 
 
 =head1 VERSION
 
-version 0.001001
+version 0.002000
 
 =head1 METHODS
 

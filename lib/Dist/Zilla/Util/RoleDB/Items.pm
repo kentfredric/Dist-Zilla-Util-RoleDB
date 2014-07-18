@@ -2,7 +2,9 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Util::RoleDB::Items;
-$Dist::Zilla::Util::RoleDB::Items::VERSION = '0.001001';
+
+our $VERSION = '0.002000';
+
 # ABSTRACT: An aggregate provisioned index of roles
 
 my @items;
@@ -42,7 +44,7 @@ Dist::Zilla::Util::RoleDB::Items - An aggregate provisioned index of roles
 
 =head1 VERSION
 
-version 0.001001
+version 0.002000
 
 =head1 METHODS
 

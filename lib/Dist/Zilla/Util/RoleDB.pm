@@ -2,7 +2,9 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Util::RoleDB;
-$Dist::Zilla::Util::RoleDB::VERSION = '0.001001';
+
+our $VERSION = '0.002000';
+
 # ABSTRACT: Shared code for things that communicate data about C<dzil> roles.
 
 use Moose;
@@ -64,7 +66,7 @@ Dist::Zilla::Util::RoleDB - Shared code for things that communicate data about C
 
 =head1 VERSION
 
-version 0.001001
+version 0.002000
 
 =head1 METHODS
 

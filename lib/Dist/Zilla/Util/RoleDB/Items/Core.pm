@@ -2,7 +2,9 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Util::RoleDB::Items::Core;
-$Dist::Zilla::Util::RoleDB::Items::Core::VERSION = '0.001001';
+
+our $VERSION = '0.002000';
+
 # ABSTRACT: A collection of roles that are provided by Dist::Zilla itself.
 
 my @items;
@@ -102,7 +104,7 @@ Dist::Zilla::Util::RoleDB::Items::Core - A collection of roles that are provided
 
 =head1 VERSION
 
-version 0.001001
+version 0.002000
 
 =head1 METHODS
 

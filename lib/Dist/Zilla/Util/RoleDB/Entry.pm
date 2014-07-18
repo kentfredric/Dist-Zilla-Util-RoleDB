@@ -2,7 +2,9 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Util::RoleDB::Entry;
-$Dist::Zilla::Util::RoleDB::Entry::VERSION = '0.001001';
+
+our $VERSION = '0.002000';
+
 # ABSTRACT: Extracted meta-data about a role
 
 use Moose;
@@ -183,7 +185,7 @@ Dist::Zilla::Util::RoleDB::Entry - Extracted meta-data about a role
 
 =head1 VERSION
 
-version 0.001001
+version 0.002000
 
 =head1 SYNOPSIS
 
