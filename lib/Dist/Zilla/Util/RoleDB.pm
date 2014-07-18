@@ -25,7 +25,6 @@ has items => (
   is      => ro =>,
   lazy    => 1,
   builder => sub {
-    my ($self) = @_;
     require Dist::Zilla::Util::RoleDB::Items;
     return [ Dist::Zilla::Util::RoleDB::Items->all() ];
   },
@@ -39,7 +38,7 @@ has items => (
 
 sub roles {
   my ($self) = @_;
-  return ( my @list = sort { $a->name cmp $b->name } @{ $self->items } );
+  return @{[ sort { $a->name cmp $b->name } @{ $self->items } ]};
 }
 
 
@@ -50,7 +49,7 @@ sub roles {
 
 sub phases {
   my ($self) = @_;
-  return ( my @list = sort { $a->name cmp $b->name } grep { $_->is_phase } @{ $self->items } );
+  return @{[ sort { $a->name cmp $b->name } grep { $_->is_phase } @{ $self->items } ]};
 }
 
 __PACKAGE__->meta->make_immutable;
