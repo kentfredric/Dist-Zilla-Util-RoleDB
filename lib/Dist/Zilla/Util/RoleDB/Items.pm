@@ -1,11 +1,15 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Dist::Zilla::Util::RoleDB::Items;
 
 our $VERSION = '0.002000';
 
 # ABSTRACT: An aggregate provisioned index of roles
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 my @items;
 

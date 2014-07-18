@@ -1,11 +1,15 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Dist::Zilla::Util::RoleDB;
 
 our $VERSION = '0.002000';
 
 # ABSTRACT: Shared code for things that communicate data about C<dzil> roles.
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Moose;
 use MooseX::AttributeShortcuts;

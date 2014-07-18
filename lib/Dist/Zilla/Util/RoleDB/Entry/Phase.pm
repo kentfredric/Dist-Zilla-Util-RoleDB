@@ -1,11 +1,15 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Dist::Zilla::Util::RoleDB::Entry::Phase;
 
 our $VERSION = '0.002000';
 
 # ABSTRACT: Extracted meta-data about a role that represents a phase
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Moose;
 use MooseX::AttributeShortcuts;

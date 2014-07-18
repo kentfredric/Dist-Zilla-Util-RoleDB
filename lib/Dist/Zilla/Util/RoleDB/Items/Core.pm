@@ -1,11 +1,15 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Dist::Zilla::Util::RoleDB::Items::Core;
 
 our $VERSION = '0.002000';
 
 # ABSTRACT: A collection of roles that are provided by Dist::Zilla itself.
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 my @items;
 
