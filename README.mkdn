@@ -1,6 +1,6 @@
 # NAME
 
-Dist::Zilla::Util::RoleDB - Shared code for things that communicate data about `dzil` roles.
+Dist::Zilla::Util::RoleDB - Shared code for things that communicate data about dzil roles.
 
 # VERSION
 

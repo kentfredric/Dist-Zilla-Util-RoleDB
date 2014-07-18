@@ -7,11 +7,11 @@ package Dist::Zilla::Util::RoleDB;
 
 our $VERSION = '0.002000';
 
-# ABSTRACT: Shared code for things that communicate data about C<dzil> roles.
+# ABSTRACT: Shared code for things that communicate data about dzil roles.
 
 # AUTHORITY
 
-use Moose;
+use Moose qw( has );
 use MooseX::AttributeShortcuts;
 
 =attr C<items>
@@ -25,9 +25,8 @@ has items => (
   is      => ro =>,
   lazy    => 1,
   builder => sub {
-    my ($self) = @_;
     require Dist::Zilla::Util::RoleDB::Items;
-    return [ Dist::Zilla::Util::RoleDB::Items::all() ];
+    return [ Dist::Zilla::Util::RoleDB::Items->all() ];
   },
 );
 
@@ -39,7 +38,7 @@ Returns a list of all roles in the database, sorted by name.
 
 sub roles {
   my ($self) = @_;
-  return ( my @list = sort { $a->name cmp $b->name } @{ $self->items } );
+  return @{ [ sort { $a->name cmp $b->name } @{ $self->items } ] };
 }
 
 =method C<phases>
@@ -50,7 +49,7 @@ Returns a list of all roles that are also phases, sorted by name.
 
 sub phases {
   my ($self) = @_;
-  return ( my @list = sort { $a->name cmp $b->name } grep { $_->is_phase } @{ $self->items } );
+  return @{ [ sort { $a->name cmp $b->name } grep { $_->is_phase } @{ $self->items } ] };
 }
 
 __PACKAGE__->meta->make_immutable;

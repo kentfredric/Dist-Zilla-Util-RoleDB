@@ -11,7 +11,7 @@ our $VERSION = '0.002000';
 
 # AUTHORITY
 
-use Moose;
+use Moose qw( has extends );
 use MooseX::AttributeShortcuts;
 
 extends 'Dist::Zilla::Util::RoleDB::Entry';

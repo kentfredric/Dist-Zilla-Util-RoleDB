@@ -42,7 +42,7 @@ sub _add_phase {
     name         => $name,
     description  => $description,
     phase_method => $phase_method,
-    @extra
+    @extra,
     );
   return;
 }
