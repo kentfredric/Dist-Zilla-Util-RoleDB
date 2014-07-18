@@ -7,7 +7,7 @@ package Dist::Zilla::Util::RoleDB;
 
 our $VERSION = '0.002000';
 
-# ABSTRACT: Shared code for things that communicate data about C<dzil> roles.
+# ABSTRACT: Shared code for things that communicate data about dzil roles.
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
@@ -65,7 +65,7 @@ __END__
 
 =head1 NAME
 
-Dist::Zilla::Util::RoleDB - Shared code for things that communicate data about C<dzil> roles.
+Dist::Zilla::Util::RoleDB - Shared code for things that communicate data about dzil roles.
 
 =head1 VERSION
 

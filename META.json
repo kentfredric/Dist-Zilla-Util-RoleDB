@@ -1,5 +1,5 @@
 {
-   "abstract" : "Shared code for things that communicate data about C<dzil> roles.",
+   "abstract" : "Shared code for things that communicate data about dzil roles.",
    "author" : [
       "Kent Fredric <kentfredric@gmail.com>"
    ],

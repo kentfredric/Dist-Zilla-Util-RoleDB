@@ -106,12 +106,12 @@ has required_modules => (
   is   => ro              =>,
   lazy => 1,
   ## no critic (ProhibitImplicitNewlines)
-  documentation => q[
-        A list of things that must be manually require()d for the module to exist.
-        Note: This should not be needed for anything, as its really only intended
-        as a way to make hidden packages require()able.
-        Usually, this will be exactly one item, and it will be the same as the modules name.
-  ],
+  documentation => <<'EOF',
+A list of things that must be manually require()d for the module to exist.
+Note: This should not be needed for anything, as its really only intended
+as a way to make hidden packages require()able.
+Usually, this will be exactly one item, and it will be the same as the modules name.
+EOF
   builder => sub {
     my ($self) = @_;
     return [ $self->full_name ];
