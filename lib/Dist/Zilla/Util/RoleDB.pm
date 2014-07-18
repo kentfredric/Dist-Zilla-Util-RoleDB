@@ -7,6 +7,8 @@ our $VERSION = '0.002000';
 
 # ABSTRACT: Shared code for things that communicate data about C<dzil> roles.
 
+# AUTHORITY
+
 use Moose;
 use MooseX::AttributeShortcuts;
 

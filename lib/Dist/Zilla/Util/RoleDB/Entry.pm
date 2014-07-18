@@ -7,6 +7,8 @@ our $VERSION = '0.002000';
 
 # ABSTRACT: Extracted meta-data about a role
 
+# AUTHORITY
+
 use Moose;
 use MooseX::AttributeShortcuts;
 

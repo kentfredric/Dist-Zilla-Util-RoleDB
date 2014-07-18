@@ -7,6 +7,8 @@ our $VERSION = '0.002000';
 
 # ABSTRACT: A collection of roles that are provided by Dist::Zilla itself.
 
+# AUTHORITY
+
 my @items;
 
 =method C<all>

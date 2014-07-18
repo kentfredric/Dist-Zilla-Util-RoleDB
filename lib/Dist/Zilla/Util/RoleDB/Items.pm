@@ -7,6 +7,8 @@ our $VERSION = '0.002000';
 
 # ABSTRACT: An aggregate provisioned index of roles
 
+# AUTHORITY
+
 my @items;
 
 =method C<all>
