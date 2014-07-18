@@ -1,6 +1,12 @@
 Release history for Dist-Zilla-Util-RoleDB
 
 {{$NEXT}}
+ [Dependencies::Stats]
+ - Dependencies changed since 0.001000, see misc/*.deps* for details
+ - build: ↑1
+ - configure: ↑1
+ - develop: +6 ↑1 -7
+ - test: +6 ↑1 (recommends: +3)
 
 0.001000 2013-11-12T21:59:51Z
  - First version. TODO: Properly scan MetaCPAN for a more comprehensie role list.
