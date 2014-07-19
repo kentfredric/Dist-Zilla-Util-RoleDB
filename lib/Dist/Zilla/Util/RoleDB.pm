@@ -1,18 +1,23 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Dist::Zilla::Util::RoleDB;
-BEGIN {
-  $Dist::Zilla::Util::RoleDB::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::Util::RoleDB::VERSION = '0.001000';
-}
 
-# ABSTRACT: Shared code for things that communicate data about C<dzil> roles.
+our $VERSION = '0.002000';
 
-use Moose;
+# ABSTRACT: Shared code for things that communicate data about dzil roles.
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
+
+use Moose qw( has );
 use MooseX::AttributeShortcuts;
+
+
+
+
+
 
 
 has items => (
@@ -20,22 +25,31 @@ has items => (
   is      => ro =>,
   lazy    => 1,
   builder => sub {
-    my ($self) = @_;
     require Dist::Zilla::Util::RoleDB::Items;
-    return [ Dist::Zilla::Util::RoleDB::Items::all() ];
+    return [ Dist::Zilla::Util::RoleDB::Items->all() ];
   },
 );
 
 
+
+
+
+
+
 sub roles {
   my ($self) = @_;
-  return ( my @list = sort { $a->name cmp $b->name } @{ $self->items } );
+  return @{ [ sort { $a->name cmp $b->name } @{ $self->items } ] };
 }
+
+
+
+
+
 
 
 sub phases {
   my ($self) = @_;
-  return ( my @list = sort { $a->name cmp $b->name } grep { $_->is_phase } @{ $self->items } );
+  return @{ [ sort { $a->name cmp $b->name } grep { $_->is_phase } @{ $self->items } ] };
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -51,11 +65,11 @@ __END__
 
 =head1 NAME
 
-Dist::Zilla::Util::RoleDB - Shared code for things that communicate data about C<dzil> roles.
+Dist::Zilla::Util::RoleDB - Shared code for things that communicate data about dzil roles.
 
 =head1 VERSION
 
-version 0.001000
+version 0.002000
 
 =head1 METHODS
 
@@ -79,7 +93,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

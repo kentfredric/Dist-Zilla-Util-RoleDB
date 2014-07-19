@@ -1,18 +1,40 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Dist::Zilla::Util::RoleDB::Entry;
-BEGIN {
-  $Dist::Zilla::Util::RoleDB::Entry::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::Util::RoleDB::Entry::VERSION = '0.001000';
-}
+
+our $VERSION = '0.002000';
 
 # ABSTRACT: Extracted meta-data about a role
 
-use Moose;
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
+
+use Moose qw( has extends );
 use MooseX::AttributeShortcuts;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -22,6 +44,13 @@ has name => (
   required      => 1,
   documentation => q[The unprefixed version of the role name, ie: -Foo => DZR::Foo],
 );
+
+
+
+
+
+
+
 
 
 has full_name => (
@@ -39,17 +68,50 @@ has full_name => (
 );
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 has required_modules => (
   isa  => 'ArrayRef[Str]' =>,
   is   => ro              =>,
   lazy => 1,
   ## no critic (ProhibitImplicitNewlines)
-  documentation => q[
-        A list of things that must be manually require()d for the module to exist.
-        Note: This should not be needed for anything, as its really only intended
-        as a way to make hidden packages require()able.
-        Usually, this will be exactly one item, and it will be the same as the modules name.
-  ],
+  documentation => <<'EOF',
+A list of things that must be manually require()d for the module to exist.
+Note: This should not be needed for anything, as its really only intended
+as a way to make hidden packages require()able.
+Usually, this will be exactly one item, and it will be the same as the modules name.
+EOF
   builder => sub {
     my ($self) = @_;
     return [ $self->full_name ];
@@ -57,7 +119,19 @@ has required_modules => (
 );
 
 
+
+
+
+
+
 sub is_phase { return }
+
+
+
+
+
+
+
 
 
 has description => (
@@ -68,6 +142,11 @@ has description => (
 );
 
 
+
+
+
+
+
 has deprecated => (
   isa           => Bool =>,
   is            => ro   =>,
@@ -75,6 +154,14 @@ has deprecated => (
   documentation => q[Set this to 1 if this role is deprecated],
   builder       => sub  { return },
 );
+
+
+
+
+
+
+
+
 
 
 sub require_module {
@@ -102,7 +189,7 @@ Dist::Zilla::Util::RoleDB::Entry - Extracted meta-data about a role
 
 =head1 VERSION
 
-version 0.001000
+version 0.002000
 
 =head1 SYNOPSIS
 
@@ -192,7 +279,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

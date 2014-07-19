@@ -1,21 +1,24 @@
-
+use 5.008;    # utf8
 use strict;
 use warnings;
-
-use strict;
-use warnings;
+use utf8;
 
 package Dist::Zilla::Util::RoleDB::Items::ThirdParty;
-BEGIN {
-  $Dist::Zilla::Util::RoleDB::Items::ThirdParty::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::Util::RoleDB::Items::ThirdParty::VERSION = '0.001000';
-}
+
+our $VERSION = '0.002000';
 
 # ABSTRACT: An aggregate provisioned index of third-party roles
 
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
+
 my @items;
+
+
+
+
+
+
+
 
 
 sub all {
@@ -39,7 +42,7 @@ sub _add_phase {
     name         => $name,
     description  => $description,
     phase_method => $phase_method,
-    @extra
+    @extra,
     );
   return;
 }
@@ -74,7 +77,7 @@ Dist::Zilla::Util::RoleDB::Items::ThirdParty - An aggregate provisioned index of
 
 =head1 VERSION
 
-version 0.001000
+version 0.002000
 
 =head1 METHODS
 
@@ -90,7 +93,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

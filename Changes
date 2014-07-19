@@ -1,5 +1,22 @@
 Release history for Dist-Zilla-Util-RoleDB
 
+0.002000 2014-07-18T20:47:59Z
+ [00 Major]
+ - Changes that may affect downstreams that work by hand
+ - Other misc package cleanups
+
+ [01 Tooling]
+ - Switched to EUMM ( https://questhub.io/realm/perl/quest/5388cc12bbd0be5b2500011f )
+ - "latest" toolkit versions now only recommended instead of required
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.001000, see misc/*.deps* for details
+ - build: -1
+ - configure: +1 -1 (recommends: +1)
+ - develop: +9 -11 (suggests: +2 -1)
+ - runtime: +1 ↑1
+ - test: +6 ↓1 (recommends: +5)
+
 0.001000 2013-11-12T21:59:51Z
  - First version. TODO: Properly scan MetaCPAN for a more comprehensie role list.
 

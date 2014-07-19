@@ -1,9 +1,9 @@
 NAME
     Dist::Zilla::Util::RoleDB - Shared code for things that communicate data
-    about "dzil" roles.
+    about dzil roles.
 
 VERSION
-    version 0.001000
+    version 0.002000
 
 METHODS
   "roles"
@@ -20,7 +20,7 @@ AUTHOR
     Kent Fredric <kentfredric@gmail.com>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2013 by Kent Fredric
+    This software is copyright (c) 2014 by Kent Fredric
     <kentfredric@gmail.com>.
 
     This is free software; you can redistribute it and/or modify it under
