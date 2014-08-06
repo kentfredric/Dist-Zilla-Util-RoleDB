@@ -1,6 +1,6 @@
 Release history for Dist-Zilla-Util-RoleDB
 
-0.002001 2014-08-03T12:45:32Z
+0.002001 2014-08-06T21:41:06Z
  [Dependencies::Stats]
  - Dependencies changed since 0.002000, see misc/*.deps* for details
  - configure: ↓1
