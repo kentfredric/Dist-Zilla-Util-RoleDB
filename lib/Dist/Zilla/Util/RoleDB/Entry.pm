@@ -28,16 +28,6 @@ use MooseX::AttributeShortcuts;
 
 
 
-
-
-
-
-
-
-
-
-
-
 has name => (
   isa           => Str =>,
   is            => ro  =>,
