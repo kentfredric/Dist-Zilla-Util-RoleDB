@@ -14,16 +14,6 @@ our $VERSION = '0.002001';
 use Moose qw( has extends );
 use MooseX::AttributeShortcuts;
 
-=head1 SYNOPSIS
-
-    use Dist::Zilla::Util::RoleDB::Entry;
-    my $entry = Dist::Zilla::Util::RoleDB::Entry->new(
-        name => "-FileGatherer",
-        description => "A thing that adds files to your dist"
-    );
-
-=cut
-
 =attr C<name>
 
 Contains the short name for the role, in a form acceptable by C<Dist::Zilla>'s C<plugins_with> method.
@@ -177,3 +167,12 @@ no Moose;
 __PACKAGE__->meta->make_immutable;
 1;
 
+=head1 SYNOPSIS
+
+    use Dist::Zilla::Util::RoleDB::Entry;
+    my $entry = Dist::Zilla::Util::RoleDB::Entry->new(
+        name => "-FileGatherer",
+        description => "A thing that adds files to your dist"
+    );
+
+=cut
