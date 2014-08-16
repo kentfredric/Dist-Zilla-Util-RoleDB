@@ -1,5 +1,24 @@
 Release history for Dist-Zilla-Util-RoleDB
 
+0.002001 2014-08-15T22:46:52Z
+ [00 Trivial]
+ - CPANDAY!
+ - no code changes.
+ - tests augmented.
+ - whitespace adjusted.
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.002000, see misc/*.deps* for details
+ - configure: ↓1
+ - develop: +1 (suggests: ↑1)
+ - test: -4 (recommends: ↑1 -2)
+
+ [Misc]
+ - Improve source side POD to reduce build side whitespace.
+
+ [Tests]
+ - update Test::ReportPrereqs
+
 0.002000 2014-07-18T20:47:59Z
  [00 Major]
  - Changes that may affect downstreams that work by hand
