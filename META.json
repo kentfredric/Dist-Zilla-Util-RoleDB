@@ -106,27 +106,27 @@
    "provides" : {
       "Dist::Zilla::Util::RoleDB" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB.pm",
-         "version" : "0.002001"
+         "version" : "0.002002"
       },
       "Dist::Zilla::Util::RoleDB::Entry" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Entry.pm",
-         "version" : "0.002001"
+         "version" : "0.002002"
       },
       "Dist::Zilla::Util::RoleDB::Entry::Phase" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Entry/Phase.pm",
-         "version" : "0.002001"
+         "version" : "0.002002"
       },
       "Dist::Zilla::Util::RoleDB::Items" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Items.pm",
-         "version" : "0.002001"
+         "version" : "0.002002"
       },
       "Dist::Zilla::Util::RoleDB::Items::Core" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Items/Core.pm",
-         "version" : "0.002001"
+         "version" : "0.002002"
       },
       "Dist::Zilla::Util::RoleDB::Items::ThirdParty" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm",
-         "version" : "0.002001"
+         "version" : "0.002002"
       }
    },
    "release_status" : "stable",
@@ -141,7 +141,7 @@
          "web" : "https://github.com/kentnl/Dist-Zilla-Util-RoleDB"
       }
    },
-   "version" : "0.002001",
+   "version" : "0.002002",
    "x_BuiltWith" : {
       "modules" : {
          "CPAN::Meta" : "2.142060",
@@ -635,7 +635,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "0.002001-source",
+                  "tag" : "0.002002-source",
                   "tag_format" : "%v-source",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -706,7 +706,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : "releases",
                   "signed" : 0,
-                  "tag" : "0.002001",
+                  "tag" : "0.002002",
                   "tag_format" : "%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"

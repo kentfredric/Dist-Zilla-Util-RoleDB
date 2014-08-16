@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Util::RoleDB::Entry;
 
-our $VERSION = '0.002001';
+our $VERSION = '0.002002';
 
 # ABSTRACT: Extracted meta-data about a role
 
@@ -179,7 +179,7 @@ Dist::Zilla::Util::RoleDB::Entry - Extracted meta-data about a role
 
 =head1 VERSION
 
-version 0.002001
+version 0.002002
 
 =head1 SYNOPSIS
 
