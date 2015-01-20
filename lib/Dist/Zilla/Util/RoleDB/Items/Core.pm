@@ -55,7 +55,7 @@ sub _add_items {
   _add_phase( q[-BeforeBuild]      => q[something that runs before building really begins],           'before_build' );
   _add_phase( q[-BeforeMint]       => q[something that runs before minting really begins],            'before_mint' );
   _add_phase( q[-BeforeRelease]    => q[something that runs before release really begins],            'before_release' );
-  _add_phase( q[-BuildRunner]      => q[something used as a delegating agent during 'dzil run'],      'build' );
+  _add_phase( q[-BuildRunner] => q[something that runs a built dists 'build' logic (like in 'dzil run/test')], 'build' );
   _add_phase( q[-EncodingProvider] => q[something that sets a files' encoding],                       'set_file_encoding' );
   _add_phase( q[-FileGatherer]     => q[something that gathers files into the distribution],          'gather_files' );
   _add_phase( q[-FileMunger]       => q[something that alters a file's destination or content],       'munge_files' );

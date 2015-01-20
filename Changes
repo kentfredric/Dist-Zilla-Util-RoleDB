@@ -1,6 +1,8 @@
 Release history for Dist-Zilla-Util-RoleDB
 
 {{$NEXT}}
+ [Entries]
+ - Tweak description for BuildRunner phases. Closes #1.
 
 0.003000 2015-01-20T21:05:36Z 670ce06
  [Dependencies::Stats]
