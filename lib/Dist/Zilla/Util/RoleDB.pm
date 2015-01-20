@@ -56,3 +56,14 @@ __PACKAGE__->meta->make_immutable;
 no Moose;
 
 1;
+
+=head1 DESCRIPTION
+
+This utility is a hard-coded list of various known C<Dist::Zilla> roles and their properties.
+
+It's not generally usable by most people, and is more useful for query tools, such as
+
+  dzil dumpphases
+
+Certain entries may have additional markers indicating they are C<phase> roles,
+and will have relevant data indicating what methods are invoked in that C<phase>.
