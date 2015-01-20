@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Util::RoleDB::Items::Core;
 
-our $VERSION = '0.003001';
+our $VERSION = '0.003002';
 
 # ABSTRACT: A collection of roles that are provided by Dist::Zilla itself.
 
@@ -108,7 +108,7 @@ Dist::Zilla::Util::RoleDB::Items::Core - A collection of roles that are provided
 
 =head1 VERSION
 
-version 0.003001
+version 0.003002
 
 =head1 METHODS
 
