@@ -825,6 +825,9 @@
          "version" : "5.031"
       }
    },
-   "x_authority" : "cpan:KENTNL"
+   "x_authority" : "cpan:KENTNL",
+   "x_contributors" : [
+      "Kent Fredric <kentnl@cpan.org>"
+   ]
 }
 
