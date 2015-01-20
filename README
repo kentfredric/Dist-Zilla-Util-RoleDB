@@ -1,6 +1,16 @@
 Dist::Zilla::Util::RoleDB
 
+This utility is a hard-coded list of various known "Dist::Zilla" roles
+and their properties.
 
+It's not generally usable by most people, and is more useful for query
+tools, such as
+
+  dzil dumpphases
+
+Certain entries may have additional markers indicating they are "phase"
+roles, and will have relevant data indicating what methods are invoked
+in that "phase".
 
 INSTALLATION
 
