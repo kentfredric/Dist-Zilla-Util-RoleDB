@@ -82,7 +82,6 @@ do { my $x = {
                       'requires' => {
                                       'Module::Runtime' => '0',
                                       'Moose' => '0',
-                                      'MooseX::AttributeShortcuts' => '0',
                                       'perl' => '5.008',
                                       'strict' => '0',
                                       'utf8' => '0',

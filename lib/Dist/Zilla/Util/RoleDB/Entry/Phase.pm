@@ -12,7 +12,6 @@ our $VERSION = '0.002002';
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Moose qw( has extends );
-use MooseX::AttributeShortcuts;
 
 extends 'Dist::Zilla::Util::RoleDB::Entry';
 

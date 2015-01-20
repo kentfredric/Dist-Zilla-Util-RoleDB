@@ -12,7 +12,6 @@ our $VERSION = '0.002002';
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Moose qw( has );
-use MooseX::AttributeShortcuts;
 
 
 
@@ -21,14 +20,18 @@ use MooseX::AttributeShortcuts;
 
 
 has items => (
-  isa     => 'ArrayRef[Dist::Zilla::Util::RoleDB::Entry]',
-  is      => ro =>,
-  lazy    => 1,
-  builder => sub {
-    require Dist::Zilla::Util::RoleDB::Items;
-    return [ Dist::Zilla::Util::RoleDB::Items->all() ];
-  },
+  isa        => 'ArrayRef[Dist::Zilla::Util::RoleDB::Entry]',
+  is         => ro =>,
+  lazy_build => 1,
 );
+
+__PACKAGE__->meta->make_immutable;
+no Moose;
+
+sub _build_items {
+  require Dist::Zilla::Util::RoleDB::Items;
+  return [ Dist::Zilla::Util::RoleDB::Items->all() ];
+}
 
 
 
@@ -51,9 +54,6 @@ sub phases {
   my ($self) = @_;
   return @{ [ sort { $a->name cmp $b->name } grep { $_->is_phase } @{ $self->items } ] };
 }
-
-__PACKAGE__->meta->make_immutable;
-no Moose;
 
 1;
 
