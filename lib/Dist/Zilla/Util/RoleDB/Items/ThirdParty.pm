@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Util::RoleDB::Items::ThirdParty;
 
-our $VERSION = '0.002002';
+our $VERSION = '0.003001';
 
 # ABSTRACT: An aggregate provisioned index of third-party roles
 

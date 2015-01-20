@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Util::RoleDB;
 
-our $VERSION = '0.002002';
+our $VERSION = '0.003001';
 
 # ABSTRACT: Shared code for things that communicate data about dzil roles.
 
