@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Util::RoleDB::Items::Core;
 
-our $VERSION = '0.003000';
+our $VERSION = '0.003001';
 
 # ABSTRACT: A collection of roles that are provided by Dist::Zilla itself.
 
@@ -48,14 +48,14 @@ sub _add_phase {
 }
 
 sub _add_items {
-  _add_phase( q[-AfterBuild]       => q[something that runs after building is mostly complete],       'after_build' );
-  _add_phase( q[-AfterMint]        => q[something that runs after minting is mostly complete],        'after_mint' );
-  _add_phase( q[-AfterRelease]     => q[something that runs after release is mostly complete],        'after_release' );
-  _add_phase( q[-BeforeArchive]    => q[something that runs before the archive file is built],        'before_archive' );
-  _add_phase( q[-BeforeBuild]      => q[something that runs before building really begins],           'before_build' );
-  _add_phase( q[-BeforeMint]       => q[something that runs before minting really begins],            'before_mint' );
-  _add_phase( q[-BeforeRelease]    => q[something that runs before release really begins],            'before_release' );
-  _add_phase( q[-BuildRunner]      => q[something used as a delegating agent during 'dzil run'],      'build' );
+  _add_phase( q[-AfterBuild]    => q[something that runs after building is mostly complete], 'after_build' );
+  _add_phase( q[-AfterMint]     => q[something that runs after minting is mostly complete],  'after_mint' );
+  _add_phase( q[-AfterRelease]  => q[something that runs after release is mostly complete],  'after_release' );
+  _add_phase( q[-BeforeArchive] => q[something that runs before the archive file is built],  'before_archive' );
+  _add_phase( q[-BeforeBuild]   => q[something that runs before building really begins],     'before_build' );
+  _add_phase( q[-BeforeMint]    => q[something that runs before minting really begins],      'before_mint' );
+  _add_phase( q[-BeforeRelease] => q[something that runs before release really begins],      'before_release' );
+  _add_phase( q[-BuildRunner] => q[something that runs a built dists 'build' logic (like in 'dzil run/test')], 'build' );
   _add_phase( q[-EncodingProvider] => q[something that sets a files' encoding],                       'set_file_encoding' );
   _add_phase( q[-FileGatherer]     => q[something that gathers files into the distribution],          'gather_files' );
   _add_phase( q[-FileMunger]       => q[something that alters a file's destination or content],       'munge_files' );
@@ -108,7 +108,7 @@ Dist::Zilla::Util::RoleDB::Items::Core - A collection of roles that are provided
 
 =head1 VERSION
 
-version 0.003000
+version 0.003001
 
 =head1 METHODS
 
