@@ -5,14 +5,13 @@ use utf8;
 
 package Dist::Zilla::Util::RoleDB;
 
-our $VERSION = '0.002001';
+our $VERSION = '0.003000';
 
 # ABSTRACT: Shared code for things that communicate data about dzil roles.
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Moose qw( has );
-use MooseX::AttributeShortcuts;
 
 
 
@@ -21,14 +20,18 @@ use MooseX::AttributeShortcuts;
 
 
 has items => (
-  isa     => 'ArrayRef[Dist::Zilla::Util::RoleDB::Entry]',
-  is      => ro =>,
-  lazy    => 1,
-  builder => sub {
-    require Dist::Zilla::Util::RoleDB::Items;
-    return [ Dist::Zilla::Util::RoleDB::Items->all() ];
-  },
+  isa        => 'ArrayRef[Dist::Zilla::Util::RoleDB::Entry]',
+  is         => ro =>,
+  lazy_build => 1,
 );
+
+__PACKAGE__->meta->make_immutable;
+no Moose;
+
+sub _build_items {
+  require Dist::Zilla::Util::RoleDB::Items;
+  return [ Dist::Zilla::Util::RoleDB::Items->all() ];
+}
 
 
 
@@ -52,9 +55,6 @@ sub phases {
   return @{ [ sort { $a->name cmp $b->name } grep { $_->is_phase } @{ $self->items } ] };
 }
 
-__PACKAGE__->meta->make_immutable;
-no Moose;
-
 1;
 
 __END__
@@ -69,7 +69,18 @@ Dist::Zilla::Util::RoleDB - Shared code for things that communicate data about d
 
 =head1 VERSION
 
-version 0.002001
+version 0.003000
+
+=head1 DESCRIPTION
+
+This utility is a hard-coded list of various known C<Dist::Zilla> roles and their properties.
+
+It's not generally usable by most people, and is more useful for query tools, such as
+
+  dzil dumpphases
+
+Certain entries may have additional markers indicating they are C<phase> roles,
+and will have relevant data indicating what methods are invoked in that C<phase>.
 
 =head1 METHODS
 
@@ -89,11 +100,11 @@ Contains all items in this data set, as an array ref.
 
 =head1 AUTHOR
 
-Kent Fredric <kentfredric@gmail.com>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2015 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

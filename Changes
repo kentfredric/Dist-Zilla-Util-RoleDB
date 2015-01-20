@@ -1,5 +1,22 @@
 Release history for Dist-Zilla-Util-RoleDB
 
+0.003000 2015-01-20T21:05:36Z 670ce06
+ [Dependencies::Stats]
+ - Dependencies changed since 0.002001, see misc/*.deps* for details
+ - configure: +1 (recommends: ↑1)
+ - develop: +9 ↑3 -2 (recommends: +1, suggests: ↑2)
+ - runtime: -1 (recommends: +1)
+ - test: +1 (recommends: ↑1 ↓1)
+
+ [Documentation]
+ - Add DESCRIPTON section
+
+ [Internals]
+ - Remove use of MX:AttributeShortcuts to avoid autobox indirect dep.
+
+ [Meta]
+ - author=kentnl@cpan.org
+
 0.002001 2014-08-15T22:46:52Z
  [00 Trivial]
  - CPANDAY!

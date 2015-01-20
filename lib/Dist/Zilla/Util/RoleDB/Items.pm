@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Util::RoleDB::Items;
 
-our $VERSION = '0.002001';
+our $VERSION = '0.003000';
 
 # ABSTRACT: An aggregate provisioned index of roles
 
@@ -48,7 +48,7 @@ Dist::Zilla::Util::RoleDB::Items - An aggregate provisioned index of roles
 
 =head1 VERSION
 
-version 0.002001
+version 0.003000
 
 =head1 METHODS
 
@@ -60,11 +60,11 @@ Returns all items in this item set, as a list
 
 =head1 AUTHOR
 
-Kent Fredric <kentfredric@gmail.com>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2015 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

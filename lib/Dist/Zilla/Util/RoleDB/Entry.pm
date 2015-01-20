@@ -5,14 +5,13 @@ use utf8;
 
 package Dist::Zilla::Util::RoleDB::Entry;
 
-our $VERSION = '0.002001';
+our $VERSION = '0.003000';
 
 # ABSTRACT: Extracted meta-data about a role
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Moose qw( has extends );
-use MooseX::AttributeShortcuts;
+use Moose qw( has );
 
 
 
@@ -46,16 +45,17 @@ has name => (
 has full_name => (
   isa           => Str =>,
   is            => ro  =>,
-  lazy          => 1,
+  lazy_build    => 1,
   documentation => q[The fully qualified version of the role name],
-  builder       => sub {
-    my ($self) = @_;
-    my $role_name = $self->name;
-    return $role_name unless $role_name =~ /\A-/msx;
-    $role_name =~ s{\A-}{Dist::Zilla::Role::}msx;
-    return $role_name;
-  },
 );
+
+sub _build_full_name {
+  my ($self) = @_;
+  my $role_name = $self->name;
+  return $role_name unless $role_name =~ /\A-/msx;
+  $role_name =~ s{\A-}{Dist::Zilla::Role::}msx;
+  return $role_name;
+}
 
 
 
@@ -92,21 +92,21 @@ has full_name => (
 
 
 has required_modules => (
-  isa  => 'ArrayRef[Str]' =>,
-  is   => ro              =>,
-  lazy => 1,
+  isa        => 'ArrayRef[Str]' =>,
+  is         => ro              =>,
+  lazy_build => 1,
   ## no critic (ProhibitImplicitNewlines)
-  documentation => <<'EOF',
+  documentation => <<'EOF', );
 A list of things that must be manually require()d for the module to exist.
 Note: This should not be needed for anything, as its really only intended
 as a way to make hidden packages require()able.
 Usually, this will be exactly one item, and it will be the same as the modules name.
 EOF
-  builder => sub {
-    my ($self) = @_;
-    return [ $self->full_name ];
-  },
-);
+
+sub _build_required_modules {
+  my ($self) = @_;
+  return [ $self->full_name ];
+}
 
 
 
@@ -140,10 +140,14 @@ has description => (
 has deprecated => (
   isa           => Bool =>,
   is            => ro   =>,
-  lazy          => 1,
+  lazy_build    => 1,
   documentation => q[Set this to 1 if this role is deprecated],
-  builder       => sub  { return },
 );
+
+sub _build_deprecated { return }
+
+no Moose;
+__PACKAGE__->meta->make_immutable;
 
 
 
@@ -163,8 +167,6 @@ sub require_module {
   return $self->full_name;
 }
 
-no Moose;
-__PACKAGE__->meta->make_immutable;
 1;
 
 __END__
@@ -179,7 +181,7 @@ Dist::Zilla::Util::RoleDB::Entry - Extracted meta-data about a role
 
 =head1 VERSION
 
-version 0.002001
+version 0.003000
 
 =head1 SYNOPSIS
 
@@ -265,11 +267,11 @@ If a role is deprecated, setting this may be useful.
 
 =head1 AUTHOR
 
-Kent Fredric <kentfredric@gmail.com>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2015 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

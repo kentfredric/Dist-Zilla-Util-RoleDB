@@ -1,28 +1,38 @@
-NAME
-    Dist::Zilla::Util::RoleDB - Shared code for things that communicate data
-    about dzil roles.
+Dist::Zilla::Util::RoleDB
 
-VERSION
-    version 0.002001
+This utility is a hard-coded list of various known "Dist::Zilla" roles
+and their properties.
 
-METHODS
-  "roles"
-    Returns a list of all roles in the database, sorted by name.
+It's not generally usable by most people, and is more useful for query
+tools, such as
 
-  "phases"
-    Returns a list of all roles that are also phases, sorted by name.
+  dzil dumpphases
 
-ATTRIBUTES
-  "items"
-    Contains all items in this data set, as an array ref.
+Certain entries may have additional markers indicating they are "phase"
+roles, and will have relevant data indicating what methods are invoked
+in that "phase".
 
-AUTHOR
-    Kent Fredric <kentfredric@gmail.com>
+INSTALLATION
+
+This is a Perl module distribution. It should be installed with whichever
+tool you use to manage your installation of Perl, e.g. any of
+
+  cpanm .
+  cpan  .
+  cpanp -i .
+
+Consult http://www.cpan.org/modules/INSTALL.html for further instruction.
+Should you wish to install this module manually, the procedure is
+
+  perl Makefile.PL
+  make
+  make test
+  make install
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2014 by Kent Fredric
-    <kentfredric@gmail.com>.
 
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
+This software is copyright (c) 2015 by Kent Fredric
+<kentfredric@gmail.com>.
 
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
