@@ -71,7 +71,7 @@ Returns the method C<Dist::Zilla> calls to implement this phase
 
 =head1 AUTHOR
 
-Kent Fredric <kentfredric@gmail.com>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

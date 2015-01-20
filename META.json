@@ -1,7 +1,7 @@
 {
    "abstract" : "Shared code for things that communicate data about dzil roles.",
    "author" : [
-      "Kent Fredric <kentfredric@gmail.com>"
+      "Kent Fredric <kentnl@cpan.org>"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Dist::Zilla version 5.031, CPAN::Meta::Converter version 2.143240",
@@ -825,9 +825,6 @@
          "version" : "5.031"
       }
    },
-   "x_authority" : "cpan:KENTNL",
-   "x_contributors" : [
-      "Kent Fredric <kentnl@cpan.org>"
-   ]
+   "x_authority" : "cpan:KENTNL"
 }
 
