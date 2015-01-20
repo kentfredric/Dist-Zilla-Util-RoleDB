@@ -75,7 +75,7 @@ version 0.002002
 
 This utility is a hard-coded list of various known C<Dist::Zilla> roles and their properties.
 
-It's not generally usable by most people, and is more useful for query tools, such as 
+It's not generally usable by most people, and is more useful for query tools, such as
 
   dzil dumpphases
 
