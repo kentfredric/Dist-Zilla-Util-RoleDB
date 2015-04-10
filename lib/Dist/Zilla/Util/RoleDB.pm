@@ -13,6 +13,19 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 use Moo qw( has );
 use Carp qw( croak );
 
+my $is_isa = sub {
+  my $isa = shift;
+  return sub { $_[0]->isa($isa) };
+};
+my $is_ArrayRef = sub {
+  not $_[1] and return ref $_[0] eq 'ARRAY';
+  return unless ref $_[0] eq 'ARRAY';
+  for ( @{ $_[0] } ) {
+    return unless $_[1]->($_);
+  }
+  1;
+};
+
 
 
 
@@ -21,10 +34,7 @@ use Carp qw( croak );
 
 has items => (
   isa => sub {
-    ref $_[0] eq 'ARRAY' or croak "->items must be an arrayref";
-    $_->isa('Dist::Zilla::Util::RoleDB::Entry')
-      or croak "All items[] must be Dist::Zilla::Util::RoleDB::Entry, got $_"
-      for @{ $_[0] };
+    $is_ArrayRef->( $_[0], $is_isa->('Dist::Zilla::Util::RoleDB::Entry') ) or croak 'Must be ArrayRef[ RoleDB::Entry ]';
   },
   is      => ro =>,
   lazy    => 1,

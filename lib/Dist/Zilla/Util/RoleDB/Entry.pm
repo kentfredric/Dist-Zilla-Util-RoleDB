@@ -13,6 +13,17 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 use Moo qw( has );
 use Carp qw( croak );
 
+my $is_Str = sub { ref( \$_[0] ) eq 'SCALAR' or ref( \( my $val = $_[0] ) ) eq 'SCALAR' };
+my $is_ArrayRef = sub {
+  not $_[1] and return ref $_[0] eq 'ARRAY';
+  return unless ref $_[0] eq 'ARRAY';
+  for ( @{ $_[0] } ) {
+    return unless $_[1]->($_);
+  }
+  1;
+};
+my $is_Bool = sub { !defined $_[0] or $_[0] eq q() or $_[0] eq '0' or $_[0] eq '1' };
+
 
 
 
@@ -28,7 +39,7 @@ use Carp qw( croak );
 
 
 has name => (
-  isa => sub { defined $_[0] and not ref $_[0] and length $_[0] or croak 'name must be a Str' },
+  isa => sub { $is_Str->( $_[0] ) or croak 'name must be a Str' },
   is            => ro =>,
   required      => 1,
   documentation => q[The unprefixed version of the role name, ie: -Foo => DZR::Foo],
@@ -43,7 +54,7 @@ has name => (
 
 
 has full_name => (
-  isa => sub { defined $_[0] and not ref $_[0] and length $_[0] or croak 'full_name must be a Str' },
+  isa => sub { $is_Str->( $_[0] ) or croak 'full_name must be a Str' },
   is            => ro =>,
   lazy          => 1,
   builder       => '_build_full_name',
@@ -93,10 +104,7 @@ sub _build_full_name {
 
 
 has required_modules => (
-  isa => sub {
-    ref $_[0] eq 'ARRAY' and not grep { ref or not defined or not length } @{ $_[0] }
-      or croak 'required_modules must be an ArrayRef of Str';
-  },
+  isa => sub { $is_ArrayRef->( $_[0], $is_Str ) or croak 'required_modules must be an ArrayRef of Str' },
   is      => ro =>,
   lazy    => 1,
   builder => '_build_required_modules',
@@ -130,7 +138,7 @@ sub is_phase { return }
 
 
 has description => (
-  isa => sub { not ref $_[0] and defined $_[0] and length $_[0] or croak 'description must be a Str' },
+  isa => sub { $is_Str->( $_[0] ) or croak 'description must be a Str' },
   is            => ro =>,
   required      => 1,
   documentation => q[A text description of the role. A copy of ABSTRACT would be fine],
@@ -143,9 +151,7 @@ has description => (
 
 
 has deprecated => (
-  isa => sub {
-    not ref $_[0] and ( not defined $_[0] or eval { $_[1] == 1 } ) or croak 'deprecated must be Boolean';
-  },
+  isa => sub { $is_Bool->( $_[0] ) or croak 'deprecated must be Boolean' },
   is            => ro =>,
   lazy          => 1,
   builder       => '_build_deprecated',

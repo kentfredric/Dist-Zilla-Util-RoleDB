@@ -12,6 +12,7 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Moo qw( has extends );
 use Carp qw( croak );
+my $is_Str = sub { ref( \$_[0] ) eq 'SCALAR' or ref( \( my $val = $_[0] ) ) eq 'SCALAR' };
 
 extends 'Dist::Zilla::Util::RoleDB::Entry';
 
@@ -32,8 +33,8 @@ sub is_phase {
 
 
 has phase_method => (
-  isa           => sub { not ref $_[0] and length $_[0] or croak 'phase_method must be a Str' },
-  is            => ro    =>,
+  isa => sub { $is_Str->( $_[0] ) or croak 'phase_method must be a Str' },
+  is            => ro =>,
   required      => 1,
   documentation => q[The method dzil calls on the phase],
 );
