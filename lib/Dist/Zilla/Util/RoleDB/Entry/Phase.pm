@@ -10,7 +10,11 @@ our $VERSION = '0.003002';
 
 # AUTHORITY
 
-use Moose qw( has extends );
+use Moo qw( has extends );
+use Carp qw( croak );
+
+## no critic (NamingConventions)
+my $is_Str = sub { 'SCALAR' eq ref \$_[0] or 'SCALAR' eq ref \( my $val = $_[0] ) };
 
 extends 'Dist::Zilla::Util::RoleDB::Entry';
 
@@ -31,13 +35,12 @@ Returns the method C<Dist::Zilla> calls to implement this phase
 =cut
 
 has phase_method => (
-  isa           => 'Str' =>,
-  is            => ro    =>,
+  isa => sub { $is_Str->( $_[0] ) or croak 'phase_method must be a Str' },
+  is            => ro =>,
   required      => 1,
   documentation => q[The method dzil calls on the phase],
 );
 
-no Moose;
-__PACKAGE__->meta->make_immutable;
+no Moo;
 1;
 

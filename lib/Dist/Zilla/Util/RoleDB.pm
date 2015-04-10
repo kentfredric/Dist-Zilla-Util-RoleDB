@@ -10,7 +10,18 @@ our $VERSION = '0.003002';
 
 # AUTHORITY
 
-use Moose qw( has );
+use Moo qw( has );
+use Carp qw( croak );
+
+## no critic (NamingConventions)
+my $is_ArrayRef = sub {
+  return 'ARRAY' eq ref $_[0] unless $_[1];
+  return unless 'ARRAY' eq ref $_[0];
+  for ( @{ $_[0] } ) {
+    return unless $_[1]->($_);
+  }
+  1;
+};
 
 =attr C<items>
 
@@ -19,13 +30,15 @@ Contains all items in this data set, as an array ref.
 =cut
 
 has items => (
-  isa        => 'ArrayRef[Dist::Zilla::Util::RoleDB::Entry]',
-  is         => ro =>,
-  lazy_build => 1,
+  isa => sub {
+    $is_ArrayRef->( $_[0], sub { $_[0]->isa('Dist::Zilla::Util::RoleDB::Entry') } ) or croak 'Must be ArrayRef[ RoleDB::Entry ]';
+  },
+  is      => ro =>,
+  lazy    => 1,
+  builder => '_build_items',
 );
 
-__PACKAGE__->meta->make_immutable;
-no Moose;
+no Moo;
 
 sub _build_items {
   require Dist::Zilla::Util::RoleDB::Items;

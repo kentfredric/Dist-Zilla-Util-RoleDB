@@ -10,7 +10,20 @@ our $VERSION = '0.003002';
 
 # AUTHORITY
 
-use Moose qw( has );
+use Moo qw( has );
+use Carp qw( croak );
+
+## no critic (NamingConventions)
+my $is_Str = sub { 'SCALAR' eq ref \$_[0] or 'SCALAR' eq ref \( my $val = $_[0] ) };
+my $is_ArrayRef = sub {
+  return 'ARRAY' eq ref $_[0] unless $_[1];
+  return unless 'ARRAY' eq ref $_[0];
+  for ( @{ $_[0] } ) {
+    return unless $_[1]->($_);
+  }
+  1;
+};
+my $is_Bool = sub { not defined $_[0] or q() eq $_[0] or '0' eq $_[0] or '1' eq $_[0] };
 
 =attr C<name>
 
@@ -27,8 +40,8 @@ Because
 =cut
 
 has name => (
-  isa           => Str =>,
-  is            => ro  =>,
+  isa => sub { $is_Str->( $_[0] ) or croak 'name must be a Str' },
+  is            => ro =>,
   required      => 1,
   documentation => q[The unprefixed version of the role name, ie: -Foo => DZR::Foo],
 );
@@ -42,9 +55,10 @@ For instance, when C<name> is C<-FileGatherer>, C<full_name> will be C<Dist::Zil
 =cut
 
 has full_name => (
-  isa           => Str =>,
-  is            => ro  =>,
-  lazy_build    => 1,
+  isa => sub { $is_Str->( $_[0] ) or croak 'full_name must be a Str' },
+  is            => ro =>,
+  lazy          => 1,
+  builder       => '_build_full_name',
   documentation => q[The fully qualified version of the role name],
 );
 
@@ -91,9 +105,10 @@ This mechanism is mostly to support C<< $entry->require_module >>
 =cut
 
 has required_modules => (
-  isa        => 'ArrayRef[Str]' =>,
-  is         => ro              =>,
-  lazy_build => 1,
+  isa => sub { $is_ArrayRef->( $_[0], $is_Str ) or croak 'required_modules must be an ArrayRef of Str' },
+  is      => ro =>,
+  lazy    => 1,
+  builder => '_build_required_modules',
   ## no critic (ProhibitImplicitNewlines)
   documentation => <<'EOF', );
 A list of things that must be manually require()d for the module to exist.
@@ -124,8 +139,8 @@ Usually, a copy of the Roles "ABSTRACT" will do the trick.
 =cut
 
 has description => (
-  isa           => Str =>,
-  is            => ro  =>,
+  isa => sub { $is_Str->( $_[0] ) or croak 'description must be a Str' },
+  is            => ro =>,
   required      => 1,
   documentation => q[A text description of the role. A copy of ABSTRACT would be fine],
 );
@@ -137,16 +152,16 @@ If a role is deprecated, setting this may be useful.
 =cut
 
 has deprecated => (
-  isa           => Bool =>,
-  is            => ro   =>,
-  lazy_build    => 1,
+  isa => sub { $is_Bool->( $_[0] ) or croak 'deprecated must be Boolean' },
+  is            => ro =>,
+  lazy          => 1,
+  builder       => '_build_deprecated',
   documentation => q[Set this to 1 if this role is deprecated],
 );
 
 sub _build_deprecated { return }
 
-no Moose;
-__PACKAGE__->meta->make_immutable;
+no Moo;
 
 =method C<require_module>
 
