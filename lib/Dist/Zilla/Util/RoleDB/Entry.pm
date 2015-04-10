@@ -16,14 +16,14 @@ use Carp qw( croak );
 ## no critic (NamingConventions)
 my $is_Str = sub { 'SCALAR' eq ref \$_[0] or 'SCALAR' eq ref \( my $val = $_[0] ) };
 my $is_ArrayRef = sub {
-  unless $_[1] return 'ARRAY' eq ref $_[0];
+  return 'ARRAY' eq ref $_[0] unless $_[1];
   return unless 'ARRAY' eq ref $_[0];
   for ( @{ $_[0] } ) {
     return unless $_[1]->($_);
   }
   1;
 };
-my $is_Bool = sub { !defined $_[0] or q() eq $_[0] or '0' eq $_[0] or '1' eq $_[0] };
+my $is_Bool = sub { not defined $_[0] or q() eq $_[0] or '0' eq $_[0] or '1' eq $_[0] };
 
 
 
