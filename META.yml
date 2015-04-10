@@ -37,10 +37,11 @@ provides:
     file: lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm
     version: '0.003002'
 recommends:
-  Moose: '2.000'
+  Moo: '1.000008'
 requires:
+  Carp: '0'
   Module::Runtime: '0'
-  Moose: '0'
+  Moo: '0'
   perl: '5.006'
   strict: '0'
   warnings: '0'

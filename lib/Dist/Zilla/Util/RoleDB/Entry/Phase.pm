@@ -10,7 +10,8 @@ our $VERSION = '0.003002';
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Moose qw( has extends );
+use Moo qw( has extends );
+use Carp qw( croak );
 
 extends 'Dist::Zilla::Util::RoleDB::Entry';
 
@@ -31,14 +32,13 @@ sub is_phase {
 
 
 has phase_method => (
-  isa           => 'Str' =>,
+  isa           => sub { not ref $_[0] and length $_[0] or croak 'phase_method must be a Str' },
   is            => ro    =>,
   required      => 1,
   documentation => q[The method dzil calls on the phase],
 );
 
-no Moose;
-__PACKAGE__->meta->make_immutable;
+no Moo;
 1;
 
 __END__

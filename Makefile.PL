@@ -18,8 +18,9 @@ my %WriteMakefileArgs = (
   "MIN_PERL_VERSION" => "5.006",
   "NAME" => "Dist::Zilla::Util::RoleDB",
   "PREREQ_PM" => {
+    "Carp" => 0,
     "Module::Runtime" => 0,
-    "Moose" => 0,
+    "Moo" => 0,
     "strict" => 0,
     "warnings" => 0
   },
@@ -36,10 +37,11 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
+  "Carp" => 0,
   "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,
   "Module::Runtime" => 0,
-  "Moose" => 0,
+  "Moo" => 0,
   "Test::More" => "0.89",
   "strict" => 0,
   "warnings" => 0

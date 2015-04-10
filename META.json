@@ -92,11 +92,12 @@
       },
       "runtime" : {
          "recommends" : {
-            "Moose" : "2.000"
+            "Moo" : "1.000008"
          },
          "requires" : {
+            "Carp" : "0",
             "Module::Runtime" : "0",
-            "Moose" : "0",
+            "Moo" : "0",
             "perl" : "5.006",
             "strict" : "0",
             "warnings" : "0"

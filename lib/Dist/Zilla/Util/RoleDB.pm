@@ -10,7 +10,8 @@ our $VERSION = '0.003002';
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Moose qw( has );
+use Moo qw( has );
+use Carp qw( croak );
 
 
 
@@ -19,13 +20,18 @@ use Moose qw( has );
 
 
 has items => (
-  isa        => 'ArrayRef[Dist::Zilla::Util::RoleDB::Entry]',
-  is         => ro =>,
-  lazy_build => 1,
+  isa => sub {
+    ref $_[0] eq 'ARRAY' or croak "->items must be an arrayref";
+    $_->isa('Dist::Zilla::Util::RoleDB::Entry')
+      or croak "All items[] must be Dist::Zilla::Util::RoleDB::Entry, got $_"
+      for @{ $_[0] };
+  },
+  is      => ro =>,
+  lazy    => 1,
+  builder => '_build_items',
 );
 
-__PACKAGE__->meta->make_immutable;
-no Moose;
+no Moo;
 
 sub _build_items {
   require Dist::Zilla::Util::RoleDB::Items;

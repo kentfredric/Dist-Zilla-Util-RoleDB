@@ -10,7 +10,8 @@ our $VERSION = '0.003002';
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Moose qw( has );
+use Moo qw( has );
+use Carp qw( croak );
 
 
 
@@ -27,8 +28,8 @@ use Moose qw( has );
 
 
 has name => (
-  isa           => Str =>,
-  is            => ro  =>,
+  isa => sub { defined $_[0] and not ref $_[0] and length $_[0] or croak 'name must be a Str' },
+  is            => ro =>,
   required      => 1,
   documentation => q[The unprefixed version of the role name, ie: -Foo => DZR::Foo],
 );
@@ -42,9 +43,10 @@ has name => (
 
 
 has full_name => (
-  isa           => Str =>,
-  is            => ro  =>,
-  lazy_build    => 1,
+  isa => sub { defined $_[0] and not ref $_[0] and length $_[0] or croak 'full_name must be a Str' },
+  is            => ro =>,
+  lazy          => 1,
+  builder       => '_build_full_name',
   documentation => q[The fully qualified version of the role name],
 );
 
@@ -91,9 +93,13 @@ sub _build_full_name {
 
 
 has required_modules => (
-  isa        => 'ArrayRef[Str]' =>,
-  is         => ro              =>,
-  lazy_build => 1,
+  isa => sub {
+    ref $_[0] eq 'ARRAY' and not grep { ref or not defined or not length } @{ $_[0] }
+      or croak 'required_modules must be an ArrayRef of Str';
+  },
+  is      => ro =>,
+  lazy    => 1,
+  builder => '_build_required_modules',
   ## no critic (ProhibitImplicitNewlines)
   documentation => <<'EOF', );
 A list of things that must be manually require()d for the module to exist.
@@ -124,8 +130,8 @@ sub is_phase { return }
 
 
 has description => (
-  isa           => Str =>,
-  is            => ro  =>,
+  isa => sub { not ref $_[0] and defined $_[0] and length $_[0] or croak 'description must be a Str' },
+  is            => ro =>,
   required      => 1,
   documentation => q[A text description of the role. A copy of ABSTRACT would be fine],
 );
@@ -137,16 +143,18 @@ has description => (
 
 
 has deprecated => (
-  isa           => Bool =>,
-  is            => ro   =>,
-  lazy_build    => 1,
+  isa => sub {
+    not ref $_[0] and ( not defined $_[0] or eval { $_[1] == 1 } ) or croak 'deprecated must be Boolean';
+  },
+  is            => ro =>,
+  lazy          => 1,
+  builder       => '_build_deprecated',
   documentation => q[Set this to 1 if this role is deprecated],
 );
 
 sub _build_deprecated { return }
 
-no Moose;
-__PACKAGE__->meta->make_immutable;
+no Moo;
 
 
 
