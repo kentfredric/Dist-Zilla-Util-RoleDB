@@ -1,17 +1,27 @@
-use 5.008;    # utf8
+use 5.006;
 use strict;
 use warnings;
-use utf8;
 
 package Dist::Zilla::Util::RoleDB;
 
-our $VERSION = '0.003001';
+our $VERSION = '0.004000'; # TRIAL
 
 # ABSTRACT: Shared code for things that communicate data about dzil roles.
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Moose qw( has );
+use Moo qw( has );
+use Carp qw( croak );
+
+## no critic (NamingConventions)
+my $is_ArrayRef = sub {
+  return 'ARRAY' eq ref $_[0] unless $_[1];
+  return unless 'ARRAY' eq ref $_[0];
+  for ( @{ $_[0] } ) {
+    return unless $_[1]->($_);
+  }
+  1;
+};
 
 
 
@@ -20,13 +30,15 @@ use Moose qw( has );
 
 
 has items => (
-  isa        => 'ArrayRef[Dist::Zilla::Util::RoleDB::Entry]',
-  is         => ro =>,
-  lazy_build => 1,
+  isa => sub {
+    $is_ArrayRef->( $_[0], sub { $_[0]->isa('Dist::Zilla::Util::RoleDB::Entry') } ) or croak 'Must be ArrayRef[ RoleDB::Entry ]';
+  },
+  is      => ro =>,
+  lazy    => 1,
+  builder => '_build_items',
 );
 
-__PACKAGE__->meta->make_immutable;
-no Moose;
+no Moo;
 
 sub _build_items {
   require Dist::Zilla::Util::RoleDB::Items;
@@ -69,7 +81,7 @@ Dist::Zilla::Util::RoleDB - Shared code for things that communicate data about d
 
 =head1 VERSION
 
-version 0.003001
+version 0.004000
 
 =head1 DESCRIPTION
 

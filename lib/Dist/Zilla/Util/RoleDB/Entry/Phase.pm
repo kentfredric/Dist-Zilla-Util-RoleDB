@@ -1,17 +1,20 @@
-use 5.008;    # utf8
+use 5.006;
 use strict;
 use warnings;
-use utf8;
 
 package Dist::Zilla::Util::RoleDB::Entry::Phase;
 
-our $VERSION = '0.003001';
+our $VERSION = '0.004000'; # TRIAL
 
 # ABSTRACT: Extracted meta-data about a role that represents a phase
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Moose qw( has extends );
+use Moo qw( has extends );
+use Carp qw( croak );
+
+## no critic (NamingConventions)
+my $is_Str = sub { 'SCALAR' eq ref \$_[0] or 'SCALAR' eq ref \( my $val = $_[0] ) };
 
 extends 'Dist::Zilla::Util::RoleDB::Entry';
 
@@ -32,14 +35,13 @@ sub is_phase {
 
 
 has phase_method => (
-  isa           => 'Str' =>,
-  is            => ro    =>,
+  isa => sub { $is_Str->( $_[0] ) or croak 'phase_method must be a Str' },
+  is            => ro =>,
   required      => 1,
   documentation => q[The method dzil calls on the phase],
 );
 
-no Moose;
-__PACKAGE__->meta->make_immutable;
+no Moo;
 1;
 
 __END__
@@ -54,7 +56,7 @@ Dist::Zilla::Util::RoleDB::Entry::Phase - Extracted meta-data about a role that 
 
 =head1 VERSION
 
-version 0.003001
+version 0.004000
 
 =head1 METHODS
 

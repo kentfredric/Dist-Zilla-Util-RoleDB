@@ -1,6 +1,24 @@
 This file contains changes in REQUIRED dependencies for standard CPAN phases (configure/build/runtime/test)
 
-0.003001
+0.004000
+ [Added / runtime requires]
+ - Carp
+ - Moo
+
+ [Changed / configure requires]
+ - perl 5.008 → 5.006
+
+ [Changed / runtime requires]
+ - perl 5.008 → 5.006
+
+ [Changed / test requires]
+ - perl 5.008 → 5.006
+
+ [Removed / runtime requires]
+ - Moose
+ - utf8
+
+0.003001 2015-01-20T22:06:48Z
 
 0.003000 2015-01-20T21:05:36Z
  [Added / configure requires]

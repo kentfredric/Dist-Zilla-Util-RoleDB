@@ -1,11 +1,10 @@
-use 5.008;    # utf8
+use 5.006;
 use strict;
 use warnings;
-use utf8;
 
 package Dist::Zilla::Util::RoleDB::Items::ThirdParty;
 
-our $VERSION = '0.003001';
+our $VERSION = '0.004000'; # TRIAL
 
 # ABSTRACT: An aggregate provisioned index of third-party roles
 
@@ -77,7 +76,7 @@ Dist::Zilla::Util::RoleDB::Items::ThirdParty - An aggregate provisioned index of
 
 =head1 VERSION
 
-version 0.003001
+version 0.004000
 
 =head1 METHODS
 

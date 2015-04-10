@@ -1,6 +1,38 @@
 This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL dependencies for all phases (configure/build/runtime/test/develop)
 
-0.003001
+0.004000
+ [Added / runtime recommends]
+ - Moo 1.000008
+
+ [Added / runtime requires]
+ - Carp
+ - Moo
+
+ [Changed / configure requires]
+ - perl 5.008 → 5.006
+
+ [Changed / develop requires]
+ - Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes 0.001001 → 0.004002
+ - Dist::Zilla::Plugin::Author::KENTNL::TravisCI 0 → 0.001002
+ - Test::More 0 → 0.88
+
+ [Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.023002 → 2.024001
+
+ [Changed / runtime requires]
+ - perl 5.008 → 5.006
+
+ [Changed / test requires]
+ - perl 5.008 → 5.006
+
+ [Removed / runtime recommends]
+ - Moose 2.000
+
+ [Removed / runtime requires]
+ - Moose
+ - utf8
+
+0.003001 2015-01-20T22:06:48Z
 
 0.003000 2015-01-20T21:05:36Z
  [Added / configure requires]

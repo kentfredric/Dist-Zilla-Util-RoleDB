@@ -1,17 +1,29 @@
-use 5.008;    # utf8
+use 5.006;
 use strict;
 use warnings;
-use utf8;
 
 package Dist::Zilla::Util::RoleDB::Entry;
 
-our $VERSION = '0.003001';
+our $VERSION = '0.004000'; # TRIAL
 
 # ABSTRACT: Extracted meta-data about a role
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Moose qw( has );
+use Moo qw( has );
+use Carp qw( croak );
+
+## no critic (NamingConventions)
+my $is_Str = sub { 'SCALAR' eq ref \$_[0] or 'SCALAR' eq ref \( my $val = $_[0] ) };
+my $is_ArrayRef = sub {
+  return 'ARRAY' eq ref $_[0] unless $_[1];
+  return unless 'ARRAY' eq ref $_[0];
+  for ( @{ $_[0] } ) {
+    return unless $_[1]->($_);
+  }
+  1;
+};
+my $is_Bool = sub { not defined $_[0] or q() eq $_[0] or '0' eq $_[0] or '1' eq $_[0] };
 
 
 
@@ -28,8 +40,8 @@ use Moose qw( has );
 
 
 has name => (
-  isa           => Str =>,
-  is            => ro  =>,
+  isa => sub { $is_Str->( $_[0] ) or croak 'name must be a Str' },
+  is            => ro =>,
   required      => 1,
   documentation => q[The unprefixed version of the role name, ie: -Foo => DZR::Foo],
 );
@@ -43,9 +55,10 @@ has name => (
 
 
 has full_name => (
-  isa           => Str =>,
-  is            => ro  =>,
-  lazy_build    => 1,
+  isa => sub { $is_Str->( $_[0] ) or croak 'full_name must be a Str' },
+  is            => ro =>,
+  lazy          => 1,
+  builder       => '_build_full_name',
   documentation => q[The fully qualified version of the role name],
 );
 
@@ -92,9 +105,10 @@ sub _build_full_name {
 
 
 has required_modules => (
-  isa        => 'ArrayRef[Str]' =>,
-  is         => ro              =>,
-  lazy_build => 1,
+  isa => sub { $is_ArrayRef->( $_[0], $is_Str ) or croak 'required_modules must be an ArrayRef of Str' },
+  is      => ro =>,
+  lazy    => 1,
+  builder => '_build_required_modules',
   ## no critic (ProhibitImplicitNewlines)
   documentation => <<'EOF', );
 A list of things that must be manually require()d for the module to exist.
@@ -125,8 +139,8 @@ sub is_phase { return }
 
 
 has description => (
-  isa           => Str =>,
-  is            => ro  =>,
+  isa => sub { $is_Str->( $_[0] ) or croak 'description must be a Str' },
+  is            => ro =>,
   required      => 1,
   documentation => q[A text description of the role. A copy of ABSTRACT would be fine],
 );
@@ -138,16 +152,16 @@ has description => (
 
 
 has deprecated => (
-  isa           => Bool =>,
-  is            => ro   =>,
-  lazy_build    => 1,
+  isa => sub { $is_Bool->( $_[0] ) or croak 'deprecated must be Boolean' },
+  is            => ro =>,
+  lazy          => 1,
+  builder       => '_build_deprecated',
   documentation => q[Set this to 1 if this role is deprecated],
 );
 
 sub _build_deprecated { return }
 
-no Moose;
-__PACKAGE__->meta->make_immutable;
+no Moo;
 
 
 
@@ -181,7 +195,7 @@ Dist::Zilla::Util::RoleDB::Entry - Extracted meta-data about a role
 
 =head1 VERSION
 
-version 0.003001
+version 0.004000
 
 =head1 SYNOPSIS
 
