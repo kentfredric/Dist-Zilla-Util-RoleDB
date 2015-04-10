@@ -4,7 +4,7 @@ Dist::Zilla::Util::RoleDB - Shared code for things that communicate data about d
 
 # VERSION
 
-version 0.004000
+version 0.004001
 
 # DESCRIPTION
 
