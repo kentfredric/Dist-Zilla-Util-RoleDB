@@ -14,7 +14,7 @@ use Moo qw( has extends );
 use Carp qw( croak );
 
 ## no critic (NamingConventions)
-my $is_Str = sub { 'SCALAR' eq ref( \$_[0] ) or 'SCALAR' eq ref( \( my $val = $_[0] ) )  };
+my $is_Str = sub { 'SCALAR' eq ref \$_[0] or 'SCALAR' eq ref \( my $val = $_[0] ) };
 
 extends 'Dist::Zilla::Util::RoleDB::Entry';
 

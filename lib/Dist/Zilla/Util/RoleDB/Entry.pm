@@ -13,7 +13,8 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 use Moo qw( has );
 use Carp qw( croak );
 
-my $is_Str = sub { ref( \$_[0] ) eq 'SCALAR' or ref( \( my $val = $_[0] ) ) eq 'SCALAR' };
+## no critic (NamingConventions)
+my $is_Str = sub { 'SCALAR' eq ref \$_[0] or 'SCALAR' eq ref \( my $val = $_[0] ) };
 my $is_ArrayRef = sub {
   not $_[1] and return ref $_[0] eq 'ARRAY';
   return unless ref $_[0] eq 'ARRAY';
