@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Util::RoleDB::Entry;
 
-our $VERSION = '0.003002';
+our $VERSION = '0.004001'; # TRIAL
 
 # ABSTRACT: Extracted meta-data about a role
 

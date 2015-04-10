@@ -1,6 +1,8 @@
 Release history for Dist-Zilla-Util-RoleDB
 
 {{$NEXT}}
+
+0.004000 2015-04-10T08:51:59Z 92558ae
  [00 Major]
  - Internals reimplemented in terms of Moo to reduce startup penalty for code that doesn't need Moose.
 
