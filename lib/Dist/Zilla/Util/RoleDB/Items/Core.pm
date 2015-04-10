@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Util::RoleDB::Items::Core;
 
-our $VERSION = '0.003002';
+our $VERSION = '0.004000'; # TRIAL
 
 # ABSTRACT: A collection of roles that are provided by Dist::Zilla itself.
 
@@ -107,7 +107,7 @@ Dist::Zilla::Util::RoleDB::Items::Core - A collection of roles that are provided
 
 =head1 VERSION
 
-version 0.003002
+version 0.004000
 
 =head1 METHODS
 

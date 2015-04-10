@@ -1,6 +1,13 @@
 This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL dependencies for all phases (configure/build/runtime/test/develop)
 
 0.003002
+ [Added / runtime recommends]
+ - Moo 1.000008
+
+ [Added / runtime requires]
+ - Carp
+ - Moo
+
  [Changed / configure requires]
  - perl 5.008 → 5.006
 
@@ -18,7 +25,11 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  [Changed / test requires]
  - perl 5.008 → 5.006
 
+ [Removed / runtime recommends]
+ - Moose 2.000
+
  [Removed / runtime requires]
+ - Moose
  - utf8
 
 0.003001 2015-01-20T22:06:48Z
