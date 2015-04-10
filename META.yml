@@ -20,22 +20,22 @@ name: Dist-Zilla-Util-RoleDB
 provides:
   Dist::Zilla::Util::RoleDB:
     file: lib/Dist/Zilla/Util/RoleDB.pm
-    version: '0.004000'
+    version: '0.004001'
   Dist::Zilla::Util::RoleDB::Entry:
     file: lib/Dist/Zilla/Util/RoleDB/Entry.pm
-    version: '0.004000'
+    version: '0.004001'
   Dist::Zilla::Util::RoleDB::Entry::Phase:
     file: lib/Dist/Zilla/Util/RoleDB/Entry/Phase.pm
-    version: '0.004000'
+    version: '0.004001'
   Dist::Zilla::Util::RoleDB::Items:
     file: lib/Dist/Zilla/Util/RoleDB/Items.pm
-    version: '0.004000'
+    version: '0.004001'
   Dist::Zilla::Util::RoleDB::Items::Core:
     file: lib/Dist/Zilla/Util/RoleDB/Items/Core.pm
-    version: '0.004000'
+    version: '0.004001'
   Dist::Zilla::Util::RoleDB::Items::ThirdParty:
     file: lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm
-    version: '0.004000'
+    version: '0.004001'
 recommends:
   Moo: '1.000008'
 requires:
@@ -49,7 +49,7 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Util-RoleDB/issues
   homepage: https://github.com/kentnl/Dist-Zilla-Util-RoleDB
   repository: https://github.com/kentnl/Dist-Zilla-Util-RoleDB.git
-version: '0.004000'
+version: '0.004001'
 x_BuiltWith:
   external_file: misc/built_with.json
 x_Dist_Zilla:
@@ -407,7 +407,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: 0.004000-source
+          tag: 0.004001-source
           tag_format: '%v-source'
           tag_message: v%v
           time_zone: local
@@ -461,7 +461,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: releases
           signed: 0
-          tag: '0.004000'
+          tag: '0.004001'
           tag_format: '%v'
           tag_message: v%v
           time_zone: local

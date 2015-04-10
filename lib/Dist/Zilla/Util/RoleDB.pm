@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Util::RoleDB;
 
-our $VERSION = '0.004000'; # TRIAL
+our $VERSION = '0.004001'; # TRIAL
 
 # ABSTRACT: Shared code for things that communicate data about dzil roles.
 
@@ -81,7 +81,7 @@ Dist::Zilla::Util::RoleDB - Shared code for things that communicate data about d
 
 =head1 VERSION
 
-version 0.004000
+version 0.004001
 
 =head1 DESCRIPTION
 

@@ -120,27 +120,27 @@
    "provides" : {
       "Dist::Zilla::Util::RoleDB" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB.pm",
-         "version" : "0.004000"
+         "version" : "0.004001"
       },
       "Dist::Zilla::Util::RoleDB::Entry" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Entry.pm",
-         "version" : "0.004000"
+         "version" : "0.004001"
       },
       "Dist::Zilla::Util::RoleDB::Entry::Phase" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Entry/Phase.pm",
-         "version" : "0.004000"
+         "version" : "0.004001"
       },
       "Dist::Zilla::Util::RoleDB::Items" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Items.pm",
-         "version" : "0.004000"
+         "version" : "0.004001"
       },
       "Dist::Zilla::Util::RoleDB::Items::Core" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Items/Core.pm",
-         "version" : "0.004000"
+         "version" : "0.004001"
       },
       "Dist::Zilla::Util::RoleDB::Items::ThirdParty" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm",
-         "version" : "0.004000"
+         "version" : "0.004001"
       }
    },
    "release_status" : "testing",
@@ -155,7 +155,7 @@
          "web" : "https://github.com/kentnl/Dist-Zilla-Util-RoleDB"
       }
    },
-   "version" : "0.004000",
+   "version" : "0.004001",
    "x_BuiltWith" : {
       "external_file" : "misc/built_with.json"
    },
@@ -617,7 +617,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "0.004000-source",
+                  "tag" : "0.004001-source",
                   "tag_format" : "%v-source",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -688,7 +688,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : "releases",
                   "signed" : 0,
-                  "tag" : "0.004000",
+                  "tag" : "0.004001",
                   "tag_format" : "%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
