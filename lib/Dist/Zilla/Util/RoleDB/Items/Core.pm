@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Util::RoleDB::Items::Core;
 
-our $VERSION = '0.004000'; # TRIAL
+our $VERSION = '0.004001';
 
 # ABSTRACT: A collection of roles that are provided by Dist::Zilla itself.
 
@@ -107,7 +107,7 @@ Dist::Zilla::Util::RoleDB::Items::Core - A collection of roles that are provided
 
 =head1 VERSION
 
-version 0.004000
+version 0.004001
 
 =head1 METHODS
 
@@ -123,7 +123,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2015 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2017 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
