@@ -124,27 +124,27 @@
    "provides" : {
       "Dist::Zilla::Util::RoleDB" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB.pm",
-         "version" : "0.004001"
+         "version" : "0.004002"
       },
       "Dist::Zilla::Util::RoleDB::Entry" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Entry.pm",
-         "version" : "0.004001"
+         "version" : "0.004002"
       },
       "Dist::Zilla::Util::RoleDB::Entry::Phase" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Entry/Phase.pm",
-         "version" : "0.004001"
+         "version" : "0.004002"
       },
       "Dist::Zilla::Util::RoleDB::Items" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Items.pm",
-         "version" : "0.004001"
+         "version" : "0.004002"
       },
       "Dist::Zilla::Util::RoleDB::Items::Core" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Items/Core.pm",
-         "version" : "0.004001"
+         "version" : "0.004002"
       },
       "Dist::Zilla::Util::RoleDB::Items::ThirdParty" : {
          "file" : "lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm",
-         "version" : "0.004001"
+         "version" : "0.004002"
       }
    },
    "release_status" : "stable",
@@ -159,7 +159,7 @@
          "web" : "https://github.com/kentnl/Dist-Zilla-Util-RoleDB"
       }
    },
-   "version" : "0.004001",
+   "version" : "0.004002",
    "x_BuiltWith" : {
       "external_file" : "misc/built_with.json"
    },
@@ -668,7 +668,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "0.004001-source",
+                  "tag" : "0.004002-source",
                   "tag_format" : "%v-source",
                   "tag_message" : "v%v"
                },
@@ -762,7 +762,7 @@
                   "branch" : "releases",
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "0.004001",
+                  "tag" : "0.004002",
                   "tag_format" : "%v",
                   "tag_message" : "v%v"
                },

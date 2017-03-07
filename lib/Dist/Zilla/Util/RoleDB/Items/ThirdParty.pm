@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Util::RoleDB::Items::ThirdParty;
 
-our $VERSION = '0.004001';
+our $VERSION = '0.004002';
 
 # ABSTRACT: An aggregate provisioned index of third-party roles
 
@@ -76,7 +76,7 @@ Dist::Zilla::Util::RoleDB::Items::ThirdParty - An aggregate provisioned index of
 
 =head1 VERSION
 
-version 0.004001
+version 0.004002
 
 =head1 METHODS
 

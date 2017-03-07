@@ -20,22 +20,22 @@ name: Dist-Zilla-Util-RoleDB
 provides:
   Dist::Zilla::Util::RoleDB:
     file: lib/Dist/Zilla/Util/RoleDB.pm
-    version: '0.004001'
+    version: '0.004002'
   Dist::Zilla::Util::RoleDB::Entry:
     file: lib/Dist/Zilla/Util/RoleDB/Entry.pm
-    version: '0.004001'
+    version: '0.004002'
   Dist::Zilla::Util::RoleDB::Entry::Phase:
     file: lib/Dist/Zilla/Util/RoleDB/Entry/Phase.pm
-    version: '0.004001'
+    version: '0.004002'
   Dist::Zilla::Util::RoleDB::Items:
     file: lib/Dist/Zilla/Util/RoleDB/Items.pm
-    version: '0.004001'
+    version: '0.004002'
   Dist::Zilla::Util::RoleDB::Items::Core:
     file: lib/Dist/Zilla/Util/RoleDB/Items/Core.pm
-    version: '0.004001'
+    version: '0.004002'
   Dist::Zilla::Util::RoleDB::Items::ThirdParty:
     file: lib/Dist/Zilla/Util/RoleDB/Items/ThirdParty.pm
-    version: '0.004001'
+    version: '0.004002'
 recommends:
   Moo: '1.000008'
 requires:
@@ -49,4 +49,4 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Util-RoleDB/issues
   homepage: https://github.com/kentnl/Dist-Zilla-Util-RoleDB
   repository: https://github.com/kentnl/Dist-Zilla-Util-RoleDB.git
-version: '0.004001'
+version: '0.004002'
