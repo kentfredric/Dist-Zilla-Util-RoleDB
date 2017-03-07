@@ -1,2 +1,3 @@
-.build
-Dist-Zilla-Util-RoleDB-*
+/.build
+/Dist-Zilla-Util-RoleDB-*
+/tmp/

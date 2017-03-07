@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Util::RoleDB;
 
-our $VERSION = '0.004001'; # TRIAL
+our $VERSION = '0.004001';
 
 # ABSTRACT: Shared code for things that communicate data about dzil roles.
 
@@ -116,7 +116,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2015 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2017 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
