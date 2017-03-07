@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Util::RoleDB::Items;
 
-our $VERSION = '0.004001'; # TRIAL
+our $VERSION = '0.004002';
 
 # ABSTRACT: An aggregate provisioned index of roles
 

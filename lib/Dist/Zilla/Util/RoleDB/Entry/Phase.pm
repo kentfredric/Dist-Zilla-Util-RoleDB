@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Util::RoleDB::Entry::Phase;
 
-our $VERSION = '0.004001'; # TRIAL
+our $VERSION = '0.004002';
 
 # ABSTRACT: Extracted meta-data about a role that represents a phase
 
